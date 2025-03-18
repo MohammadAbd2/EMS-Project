@@ -1,0 +1,37 @@
+/* General Styles */
+* {
+    -fx-text-fill: #FFFFFF;  /* Set default text color for all elements */
+}
+
+/* Header Styles */
+#Header {
+    -fx-text-fill: green;  /* Specific text color for Header */
+    -fx-pref-width: auto;  /* Automatically adjust the width */
+    -fx-background-image: url("/img/background_image.png");  /* Background image for the Header */
+}
+
+/* Navbar Styles */
+#navbar {
+    -fx-padding: 25px 0 0 0;  /* Padding: 30px top, 0px right, 0px bottom, 0px left */
+}
+
+
+HBox Button {
+    -fx-padding : 14px;
+    -fx-max-height: auto;
+}
+
+HBox Button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.25) !important;
+
+}
+
+
+/* Profile Picture Styles */
+#profile_pic {
+    -fx-background-radius: 50%;  /* Circular background */
+    -fx-border-radius: 50%;  /* Circular border */
+    -fx-border-color: white;  /* White border color */
+    -fx-border-width: 2px;  /* Border width */
+    -fx-margin: 30px 0 0 0;
+}
