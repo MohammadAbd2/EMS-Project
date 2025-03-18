@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Region?>
 
 <VBox spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="dk.easv.mohammadabd.ticketbar.GUI.Controller.HelloController">
+      fx:controller="dk.easv.mohammadabd.EMSProject.GUI.Controller.HelloController">
 
     <!-- Header with Image on Left and Navbar on Right -->
     <HBox fx:id="Header" alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: #333;">

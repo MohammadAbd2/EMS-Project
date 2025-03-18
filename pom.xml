@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>dk.easv.mohammadabd.ticketbar/dk.easv.mohammadabd.ticketbar.GUI.View.Application
+                            <mainClass>dk.easv.mohammadabd.ticketbar/dk.easv.mohammadabd.EMSProject.GUI.View.Application
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
