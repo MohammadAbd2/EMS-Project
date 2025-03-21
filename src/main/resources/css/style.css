@@ -1,3 +1,11 @@
+
+/*
+---------------
+loginPage
+---------------
+*/
+
+
 /* General Styles */
 * {
     -fx-text-fill: #FFFFFF;  /* Set default text color for all elements */
@@ -34,4 +42,38 @@ HBox Button:hover {
     -fx-border-color: white;  /* White border color */
     -fx-border-width: 2px;  /* Border width */
     -fx-margin: 30px 0 0 0;
+}
+
+
+
+/*
+---------------
+loginPage
+---------------
+*/
+
+.text-field, .password-field {
+    -fx-background-radius: 10;
+    -fx-background-color: white;
+    -fx-padding: 8;
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+}
+
+.login-button {
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 10 20 10 20;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+}
+
+.hyperlink {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.hyperlink:hover {
+    -fx-text-fill: #ffcc00;
 }

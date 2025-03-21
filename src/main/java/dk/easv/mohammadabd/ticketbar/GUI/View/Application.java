@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class Application extends javafx.application.Application {
 
-    private static final String FXML_PATH = "/dk/easv/mohammadabd/ticketbar/hello-view.fxml";
+    private static final String FXML_PATH = "/dk/easv/mohammadabd/ticketbar/loginPage.fxml";
     private static final String CSS_PATH = "/css/style.css";
     private static final String LOGO_PATH = "/img/logo.png"; // Path to the logo
     private static final String ProfilePic_PATH = "/img/logo.png";
@@ -66,7 +66,7 @@ public class Application extends javafx.application.Application {
         // Configure and show the stage
         stage.setTitle("Easv Ticket Bar System");
         stage.setScene(scene);
-        stage.setMaximized(true);
+//        stage.setMaximized(true);
         stage.show();
     }
 
