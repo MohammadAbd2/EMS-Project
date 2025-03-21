@@ -1,6 +1,6 @@
 package dk.easv.mohammadabd.EMSProject.BE;
 
-public class customer {
+public class Customer {
 
     int customerID;
     String customerName;
@@ -9,7 +9,7 @@ public class customer {
     String customerEmail;
 
 
-    public customer(int customerID, String customerName, String customerAddress, String customerPhone, String customerEmail) {
+    public Customer(int customerID, String customerName, String customerAddress, String customerPhone, String customerEmail) {
         this.customerID = customerID;
         this.customerName = customerName;
         this.customerAddress = customerAddress;
