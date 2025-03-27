@@ -11,25 +11,25 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500" prefWidth="400" style="-fx-background-color: #0074d9; -fx-border-color: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1">
+<AnchorPane prefHeight="500" prefWidth="400" style="-fx-background-color: #0074d9; -fx-border-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <VBox alignment="CENTER" spacing="20" AnchorPane.bottomAnchor="30" AnchorPane.leftAnchor="30" AnchorPane.rightAnchor="30" AnchorPane.topAnchor="30">
         <ImageView fx:id="logo" fitHeight="60" fitWidth="120" />
 
-        <Label prefHeight="26.0" prefWidth="338.0" style="-fx-text-fill: black; -fx-font-size: 18;" text="Username">
+        <Label prefHeight="26.0" prefWidth="337.6" style="-fx-text-fill: black; -fx-font-size: 18;" text="Username">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-        <TextField fx:id="usernameField" promptText="admin" />
+        <TextField fx:id="usernameField" maxWidth="337.6" prefHeight="25.6" prefWidth="337.6" promptText="admin" />
 
-        <Label prefHeight="26.0" prefWidth="354.0" style="-fx-text-fill: black; -fx-font-size: 18;" text="Password" />
-        <PasswordField fx:id="passwordField" promptText="abc123" />
+        <Label prefHeight="25.6" prefWidth="337.6" style="-fx-text-fill: black; -fx-font-size: 18;" text="Password" />
+        <PasswordField fx:id="passwordField" maxWidth="337.6" prefHeight="25.6" prefWidth="337.6" promptText="abc123" />
 
         <Button fx:id="loginButton" maxWidth="200" prefHeight="30.0" prefWidth="200.0" styleClass="login-button" text="Log In" />
       <Region prefHeight="0.0" prefWidth="338.0" />
 
         <VBox alignment="CENTER" spacing="5">
             <Label prefHeight="19.0" prefWidth="353.0" style="-fx-text-fill: black; -fx-font-size: 13;" text="Contact us for help" />
-            <Hyperlink prefHeight="24.0" prefWidth="361.0" style="-fx-text-fill: black;" text="+45 22 22 22 22" />
+            <Hyperlink prefHeight="24.0" prefWidth="361.0" style="-fx-text-fill: black;" text="+45 91 99 41 44" />
         </VBox>
     </VBox>
 </AnchorPane>

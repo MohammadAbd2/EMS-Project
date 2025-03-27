@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class Application extends javafx.application.Application {
 
-    private static final String FXML_PATH = "/dk/easv/mohammadabd/ticketbar/loginPage.fxml";
+    private static final String FXML_PATH = "/dk/easv/mohammadabd/ticketbar/createAccPage.fxml";
     private static final String CSS_PATH = "/css/style.css";
     private static final String LOGO_PATH = "/img/logo.png"; // Path to the logo
     private static final String ProfilePic_PATH = "/img/logo.png";
