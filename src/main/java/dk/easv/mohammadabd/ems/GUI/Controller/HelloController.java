@@ -1,4 +1,4 @@
-package dk.easv.mohammadabd.ticketbar.GUI.Controller;
+package dk.easv.mohammadabd.ems.GUI.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

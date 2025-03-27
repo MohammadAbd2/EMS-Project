@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dk.easv.mohammadabd</groupId>
-    <artifactId>TicketBar</artifactId>
+    <artifactId>EMS</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>TicketBar</name>
+    <name>EMS</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>dk.easv.mohammadabd.ticketbar/dk.easv.mohammadabd.ticketbar.GUI.View.Application
+                            <mainClass>dk.easv.mohammadabd.ems/dk.easv.mohammadabd.ems.GUI.View.Application
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
