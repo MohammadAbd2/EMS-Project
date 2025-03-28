@@ -14,6 +14,9 @@ public class Application extends javafx.application.Application {
     private static final String CSS_PATH = "/css/style.css";
     private static final String LOGO_PATH = "/img/logo.png"; // Path to the logo
     private static final String ProfilePic_PATH = "/img/logo.png";
+    private static final String Slider_Path = "/img/slider_img.png"; // Path to the logo
+
+
     @Override
     public void start(Stage stage) throws IOException {
         // Validate FXML file existence
@@ -61,6 +64,21 @@ public class Application extends javafx.application.Application {
         } else {
             System.err.println("Warning: Logo file not found at " + ProfilePic_PATH);
         }
+
+        // load slider picture and set in the fxml controller
+        URL slider = getClass().getResource(Slider_Path);
+        if (slider != null) {
+            ImageView sliderView = (ImageView) scene.lookup("#slider"); // Get ImageView from FXML
+            if (sliderView != null) {
+                sliderView.setImage(new Image(slider.toExternalForm()));
+            } else {
+                System.err.println("Warning: ImageView with fx:id='logo' not found in FXML.");
+            }
+        } else {
+            System.err.println("Warning: Logo file not found at " + LOGO_PATH);
+        }
+
+
 
         // Configure and show the stage
         stage.setTitle("Easv Ticket Bar System");

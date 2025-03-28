@@ -15,6 +15,11 @@
     -fx-padding: 25px 0 0 0;  /* Padding: 30px top, 0px right, 0px bottom, 0px left */
 }
 
+#slider{
+    -fx-pref-width: auto;
+    -fx-background-size: stretch; /* This ensures the background image stretches to fit the element */
+    -fx-background-repeat: no-repeat; /* Prevents background image from repeating */
+}
 
 HBox Button {
     -fx-padding : 14px;

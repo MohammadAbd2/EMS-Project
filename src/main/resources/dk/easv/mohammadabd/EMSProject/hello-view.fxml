@@ -33,15 +33,14 @@
             <Button text="Events" style="-fx-background-color: transparent; -fx-text-fill: white;" />
             <ImageView fx:id="profile_pic" fitHeight="65" fitWidth="74" />
         </HBox>
+
     </HBox>
 
     <!-- Main Content -->
-    <VBox alignment="CENTER" spacing="10.0">
-        <!-- Apply Padding Correctly -->
-        <padding>
-            <Insets top="20" right="20" bottom="20" left="20"/>
-        </padding>
-        <Label text="This is a test" />
+    <VBox alignment="TOP_LEFT" spacing="0.0">
+        <ImageView fx:id="slider" fitHeight="250" />
+
     </VBox>
+
 
 </VBox>
