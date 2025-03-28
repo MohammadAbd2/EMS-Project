@@ -1,4 +1,4 @@
-package dk.easv.mohammadabd.EMSProject.BE;
+package dk.easv.mohammadabd.ems.BE;
 
 public class Customer {
 

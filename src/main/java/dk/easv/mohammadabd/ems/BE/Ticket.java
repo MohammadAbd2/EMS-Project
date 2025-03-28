@@ -1,6 +1,5 @@
-package dk.easv.mohammadabd.EMSProject.BE;
+package dk.easv.mohammadabd.ems.BE;
 
-import java.lang.reflect.Array;
 import java.util.Date;
 
 public class Ticket {

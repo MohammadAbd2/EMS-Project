@@ -1,5 +1,4 @@
-package dk.easv.mohammadabd.EMSProject.GUI.View;
-
+package dk.easv.mohammadabd.ems.GUI.View;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -10,7 +9,9 @@ import java.net.URL;
 
 public class Application extends javafx.application.Application {
 
-    private static final String FXML_PATH = "/dk/easv/mohammadabd/EMSProject/hello-view.fxml";
+   private static final String FXML_PATH = "/dk/easv/mohammadabd/ems/mainPage.fxml";
+
+    private static final String CreateAcc_FXML_PATH = "/dk/easv/mohammadabd/ems/createAccPage.fxml";
     private static final String CSS_PATH = "/css/style.css";
     private static final String LOGO_PATH = "/img/logo.png"; // Path to the logo
     private static final String ProfilePic_PATH = "/img/logo.png";
