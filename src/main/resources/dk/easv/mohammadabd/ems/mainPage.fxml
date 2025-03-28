@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-
-      fx:controller="dk.easv.mohammadabd.ems.GUI.Controller.HelloController">
+<VBox stylesheets="@../../../../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.mohammadabd.ems.GUI.Controller.HelloController">
     <!-- Header with Image on Left and Navbar on Right -->
-    <HBox fx:id="Header" alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: #333;">
+    <HBox fx:id="Header" alignment="CENTER_LEFT" stylesheets="@../../../../css/style.css">
 
         <!-- Apply Padding Correctly -->
         <padding>
@@ -20,25 +19,38 @@
         </padding>
 
         <!-- Logo on the Left -->
-        <ImageView fx:id="logo" fitHeight="50" fitWidth="100" />
+        <ImageView fx:id="logo" fitHeight="70.0" fitWidth="120.0" opacity="0.79">
+         <image>
+            <Image url="@../../../../img/logo.png" />
+         </image>
+         <HBox.margin>
+            <Insets left="15.0" />
+         </HBox.margin>
+        </ImageView>
 
         <!-- Spacer to Push Navbar to the Right -->
         <Region HBox.hgrow="ALWAYS" />
 
         <!-- Navigation Bar (Buttons) -->
-        <HBox fx:id="navbar" spacing="15" alignment="TOP_CENTER">
-            <Button text="Home" style="-fx-background-color: transparent; -fx-text-fill: white;" />
-            <Button text="Ticket" style="-fx-background-color: transparent; -fx-text-fill: white;" />
-            <Button text="Coordinator" style="-fx-background-color: transparent; -fx-text-fill: white;" />
-            <Button text="Events" style="-fx-background-color: transparent; -fx-text-fill: white;" />
-            <ImageView fx:id="profile_pic" fitHeight="65" fitWidth="74" />
+        <HBox fx:id="navbar" alignment="TOP_CENTER" stylesheets="@../../../../css/style.css">
+            <Button text="Home" />
+            <Button text="Ticket" />
+            <Button text="Events" />
+            <Button text="Coordinator" />
+
+            <StackPane fx:id="profileImagePane" alignment="CENTER">
+                <ImageView fx:id="profile_pic" fitHeight="65.0" fitWidth="61.0" />
+            </StackPane>
         </HBox>
 
     </HBox>
 
     <!-- Main Content -->
-    <VBox alignment="TOP_LEFT" spacing="0.0">
-        <ImageView fx:id="slider" fitHeight="250" />
+    <VBox alignment="TOP_LEFT" prefHeight="242.0" prefWidth="1445.0" spacing="0.0">
+        <ImageView fx:id="slider" fitHeight="249.0" fitWidth="1413.0">
+         <image>
+            <Image url="@../../../../img/slider_img.png" />
+         </image></ImageView>
 
     </VBox>
 

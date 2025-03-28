@@ -14,7 +14,7 @@ public class Application extends javafx.application.Application {
     private static final String CreateAcc_FXML_PATH = "/dk/easv/mohammadabd/ems/createAccPage.fxml";
     private static final String CSS_PATH = "/css/style.css";
     private static final String LOGO_PATH = "/img/logo.png"; // Path to the logo
-    private static final String ProfilePic_PATH = "/img/logo.png";
+    private static final String ProfilePic_PATH = "/img/profile_picture.png";
     private static final String Slider_Path = "/img/slider_img.png"; // Path to the logo
 
 
@@ -56,11 +56,11 @@ public class Application extends javafx.application.Application {
         // Load the picture in the FXML controller
         URL profilePic_url = getClass().getResource(ProfilePic_PATH);
         if (profilePic_url != null) {
-            ImageView logoView = (ImageView) scene.lookup("#profile_pic"); // Get ImageView from FXML
-            if (logoView != null) {
-                logoView.setImage(new Image(logoUrl.toExternalForm()));
+            ImageView profilePicView = (ImageView) scene.lookup("#profile_pic"); // Get ImageView from FXML
+            if (profilePicView != null) {
+                profilePicView.setImage(new Image(profilePic_url.toExternalForm()));
             } else {
-                System.err.println("Warning: ImageView with fx:id='logo' not found in FXML.");
+                System.err.println("Warning: ImageView with fx:id='#profile_pic' not found in FXML.");
             }
         } else {
             System.err.println("Warning: Logo file not found at " + ProfilePic_PATH);
