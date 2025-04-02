@@ -15,13 +15,17 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
         SceneManager.setStage(stage);
-
-        // Create Root Container
+        VBox Application = new VBox();
+        // Create TopBar Container
+        VBox WindowBarBox = new VBox();
+        // Create Root Container (VBox)
         VBox rootContainer = new VBox();
+
+
 
         // Add Custom Title Bar
         CustomTitleBar titleBar = new CustomTitleBar(stage);
-        rootContainer.getChildren().add(titleBar);  // ✅ Add the draggable title bar
+        WindowBarBox.getChildren().add(titleBar);  // ✅ Add the draggable title bar
 
         // Add Content
         rootContainer.getChildren().add(Navbar.loadNavbar());
@@ -29,8 +33,21 @@ public class Application extends javafx.application.Application {
         rootContainer.getChildren().add(SceneManager.loadSceneAsParent("/dk/easv/mohammadabd/ems/loginPage.fxml"));
         rootContainer.getChildren().add(Slider.loadSlider());
 
-        // Create Scene
-        Scene scene = new Scene(rootContainer, 1200, 800);
+        // ✅ Wrap rootContainer inside ScrollPane
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setContent(rootContainer);
+        scrollPane.setFitToWidth(true);
+        scrollPane.setFitToHeight(true);
+        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        scrollPane.getStyleClass().add("scroll-pane"); // Apply CSS styles
+
+
+        // Add all the Containers to the Application for loading the scene
+        Application.getChildren().add(WindowBarBox);
+        Application.getChildren().add(scrollPane);
+        // ✅ Now set ScrollPane as the root scene node
+        Scene scene = new Scene(Application, 1200, 800);
         scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
 
         // Remove Default Window Borders
@@ -41,8 +58,6 @@ public class Application extends javafx.application.Application {
         stage.setTitle("Easv Ticket Bar System");
         stage.show();
     }
-
-
 
     public static void main(String[] args) {
         launch();

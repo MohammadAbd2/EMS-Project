@@ -47,7 +47,7 @@ loginPage
     -fx-background-color: null !important;
 }
 .scroll-pane {
-    -fx-background-color: transparent; /* Make background transparent */
+    -fx-background-color: linear-gradient(to bottom, rgba(229, 188, 54, 0.9), #0d82ad);
     -fx-fit-to-width: true;
     -fx-fit-to-height: false;
     -fx-hbar-policy: never;
@@ -73,7 +73,7 @@ loginPage
 }
 
 .scroll-pane .scroll-bar:vertical .thumb:hover {
-    -fx-background-color: rgba(50, 50, 50, 0.8); /* Darker on hover */
+    -fx-background-color: linear-gradient(to bottom, #e5bc36, #0d82ad);
 }
 
 /* Hide the horizontal scrollbar completely */
@@ -97,7 +97,7 @@ loginPage
 /* Add a Transparent Border for a Smooth Look */
 .root {
     -fx-border-color: rgba(255, 255, 255, 0.2);
-    -fx-border-width: 2px;
+    -fx-border-width: 0px;
     -fx-border-radius: 15px;
 }
 
