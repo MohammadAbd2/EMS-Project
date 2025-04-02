@@ -46,6 +46,60 @@ loginPage
     -fx-padding: 14px 0px 0px 15px;
     -fx-background-color: null !important;
 }
+.scroll-pane {
+    -fx-background-color: transparent; /* Make background transparent */
+    -fx-fit-to-width: true;
+    -fx-fit-to-height: false;
+    -fx-hbar-policy: never;
+    -fx-vbar-policy: always;
+}
+
+/* Style the viewport inside the ScrollPane */
+.scroll-pane .viewport {
+    -fx-background-color: white;
+    -fx-background-radius: 10px; /* Rounded corners for viewport */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0, 2);
+}
+
+/* Customize the scrollbar track */
+.scroll-pane .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+/* Style the scrollbar thumb (the moving part) */
+.scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(100, 100, 100, 0.6); /* Semi-transparent scrollbar */
+    -fx-background-radius: 6px;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: rgba(50, 50, 50, 0.8); /* Darker on hover */
+}
+
+/* Hide the horizontal scrollbar completely */
+.scroll-pane .scroll-bar:horizontal {
+    -fx-opacity: 0;
+    -fx-pref-height: 0;
+}
+
+/* Gradient Background */
+.root {
+    -fx-background-color: linear-gradient(to right, #87CEFA, #6A0DAD); /* SkyBlue → Purple → Yellow */
+    -fx-background-radius: 15px;
+    -fx-padding: 0px 0px 0px 0px;
+}
+
+/* Soft Shadow Effect */
+.root {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 15, 0.2, 0, 5);
+}
+
+/* Add a Transparent Border for a Smooth Look */
+.root {
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-width: 2px;
+    -fx-border-radius: 15px;
+}
 
 
 
