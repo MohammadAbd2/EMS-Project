@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 
-public class login {
+public class Login {
     @FXML
     private Button ticketButton; // Button to trigger the ticketTab method
 
