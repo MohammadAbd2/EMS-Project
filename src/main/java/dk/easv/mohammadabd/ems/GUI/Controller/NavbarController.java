@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -14,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 public class NavbarController {
@@ -189,7 +192,8 @@ public class NavbarController {
         }
     }
 
-    public void ProfileTab(ActionEvent event) {
+
+    public void ProfileTab(javafx.scene.input.MouseEvent event) {
         try {
             // declaration of the variables
             Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -206,7 +210,7 @@ public class NavbarController {
 
             //add the new component here bellow
             Body.getChildren().add(Slider.loadSlider());
-            Body.getChildren().add(Slider.loadSlider());
+            Body.getChildren().add(Login.loadLogin());
 
 
             // create and add the ScrollPane
@@ -227,5 +231,4 @@ public class NavbarController {
             e.printStackTrace();
         }
     }
-
 }

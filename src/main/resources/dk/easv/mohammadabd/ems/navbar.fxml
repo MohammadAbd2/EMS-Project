@@ -39,7 +39,7 @@
             <Button fx:id="EventTab" text="Events" onAction="#EventTab" />
             <Button fx:id="CoordinatorTab" text="Coordinator" onAction="#CoordinatorTab" />
 
-            <StackPane fx:id="profileImagePane" alignment="CENTER">
+            <StackPane fx:id="profileImagePane" alignment="CENTER" onMouseClicked="#ProfileTab">
                 <ImageView fx:id="profile_pic" fitHeight="65.0" fitWidth="61.0"/>
             </StackPane>
         </HBox>
