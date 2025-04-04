@@ -11,8 +11,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500" prefWidth="400" style="-fx-background-color: #0074d9; -fx-border-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <VBox alignment="CENTER" spacing="20" AnchorPane.bottomAnchor="30" AnchorPane.leftAnchor="30" AnchorPane.rightAnchor="30" AnchorPane.topAnchor="30">
+<AnchorPane fx:id="loginPageContent" prefHeight="500" prefWidth="400" style="-fx-background-color: #0074d9; -fx-border-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox  alignment="CENTER" spacing="20" AnchorPane.bottomAnchor="30" AnchorPane.leftAnchor="30" AnchorPane.rightAnchor="30" AnchorPane.topAnchor="30">
         <ImageView fx:id="logo" fitHeight="60" fitWidth="120" />
 
         <Label prefHeight="26.0" prefWidth="337.6" style="-fx-text-fill: black; -fx-font-size: 18;" text="Username">

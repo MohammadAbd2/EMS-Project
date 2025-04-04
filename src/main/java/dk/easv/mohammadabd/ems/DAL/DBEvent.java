@@ -18,8 +18,8 @@ public class DBEvent {
         try (Connection conn = dbConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setString(1, event.getEventName());
-            pstmt.setInt(2, event.getStart_time());
-            pstmt.setInt(3, event.getEnd_time());
+            pstmt.setDate(2, event.getStart_time());
+            pstmt.setDate(3, event.getEnd_time());
             pstmt.setString(4, event.getLocation());
             pstmt.setString(5, event.getLocationGuidance());
             pstmt.setString(6, event.getNotes());
@@ -45,8 +45,8 @@ public class DBEvent {
                 events.add(new Event(
                         rs.getInt("event_id"),
                         rs.getString("event_name"),
-                        rs.getInt("start_time"),
-                        rs.getInt("end_time"),
+                        rs.getDate("start_time"),
+                        rs.getDate("end_time"),
                         rs.getString("location"),
                         rs.getString("location_guidance"),
                         rs.getString("notes")
@@ -62,8 +62,8 @@ public class DBEvent {
         try (Connection conn = dbConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, event.getEventName());
-            pstmt.setInt(2, event.getStart_time());
-            pstmt.setInt(3, event.getEnd_time());
+            pstmt.setDate(2, event.getStart_time());
+            pstmt.setDate(3, event.getEnd_time());
             pstmt.setString(4, event.getLocation());
             pstmt.setString(5, event.getLocationGuidance());
             pstmt.setString(6, event.getNotes());
