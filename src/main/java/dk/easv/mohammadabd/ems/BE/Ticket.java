@@ -4,23 +4,22 @@ import java.util.Date;
 
 public class Ticket {
     private int id;
-    private String title;
-    private String note;
-    private int price;
+    private String eventName;
+    private int start_time;
+    private int end_time;
     private String location;
-    private Date date;
-    private boolean isVip;
+    private String locationGuidance;
+    private String notes;
 
-    public Ticket(int id, String title, String note, int price, String location, Date date, boolean isVip) {
+    public Ticket(int id, String eventName, int start_time, int end_time, String location, String locationGuidance, String notes) {
         this.id = id;
-        this.title = title;
-        this.note = note;
-        this.price = price;
+        this.eventName = eventName;
+        this.start_time = start_time;
+        this.end_time = end_time;
         this.location = location;
-        this.date = date;
-        this.isVip = isVip;
+        this.locationGuidance = locationGuidance;
+        this.notes = notes;
     }
-
 
     public int getId() {
         return id;
@@ -29,43 +28,46 @@ public class Ticket {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getEventName() {
+        return eventName;
     }
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getNote() {
-        return note;
-    }
-    public void setNote(String note) {
-        this.note = note;
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
 
-    public int getPrice() {
-        return price;
+    public int getStart_time() {
+        return start_time;
     }
-    public void setPrice(int price) {
-        this.price = price;
+    public void setStart_time(int start_time) {
+        this.start_time = start_time;
     }
+
+    public int getEnd_time() {
+        return end_time;
+    }
+    public void setEnd_time(int end_time) {
+        this.end_time = end_time;
+    }
+
     public String getLocation() {
         return location;
     }
     public void setLocation(String location) {
         this.location = location;
     }
-    public Date getDate() {
-        return date;
+
+    public String getLocationGuidance() {
+        return locationGuidance;
     }
-    public void setDate(Date date) {
-        this.date = date;
+    public void setLocationGuidance(String locationGuidance) {
+        this.locationGuidance = locationGuidance;
     }
-    public boolean isVip() {
-        return isVip;
+
+    public String getNotes() {
+        return notes;
     }
-    public void setVip(boolean isVip) {
-        this.isVip = isVip;
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 
     @Override
