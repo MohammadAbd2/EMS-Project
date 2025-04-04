@@ -24,9 +24,8 @@ public class Events {
 
     public static VBox loadEventsComponent() {
         VBox mainContainer = new VBox();
-        mainContainer.setStyle("-fx-background-color: transparent;");
-        mainContainer.setSpacing(15);
         mainContainer.setPadding(new Insets(15));
+        mainContainer.setPrefWidth(700);
         mainContainer.setAlignment(Pos.TOP_RIGHT); // Align TOP_RIGHT
 
         // Set width after the scene is initialized
@@ -39,9 +38,10 @@ public class Events {
 
         // TextField for searching events
         TextField searchBox = new TextField();
-        searchBox.setStyle("-fx-background-color: transparent;");
+        searchBox.setStyle("-fx-background-color: white;");
         searchBox.setPromptText("Search events...");
         searchBox.setPrefWidth(300);
+
 
         // Filter options
         HBox filterBox = new HBox(10);
@@ -52,28 +52,29 @@ public class Events {
         Button priceHighBtn = new Button("Price: Highest");
         Button latestBtn = new Button("Latest");
         filterBox.getChildren().addAll(sortByBtn, priceLowBtn, priceHighBtn, latestBtn);
+        filterBox.setPadding(new Insets(5));
 
         // Top bar containing the search box and filter box
-        HBox topBar = new HBox(20);
-        topBar.setStyle("-fx-background-color: green;");
+        HBox topBar = new HBox();
+        topBar.setStyle("-fx-background-color: transparent;");
         topBar.getChildren().addAll(searchBox, filterBox);
         topBar.setAlignment(Pos.CENTER_LEFT);
         HBox.setHgrow(filterBox, Priority.ALWAYS);
 
         // ScrollPane to hold the event cards
         ScrollPane scrollPane = new ScrollPane();
-        scrollPane.setStyle("-fx-background-color: red !important;");
-        scrollPane.setPrefWidth(700);
-        scrollPane.setPrefHeight(500);
+        scrollPane.setStyle("-fx-background-color: #0abae0 !important;");
+        scrollPane.setFitToWidth(true);
+        scrollPane.setPrefHeight(600);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
         // FlowPane to display events
         FlowPane eventPane = new FlowPane();
-        eventPane.setStyle("-fx-background-color: red;");
+        eventPane.setStyle("-fx-background-color: linear-gradient(to right, #87CEFA, #0b48cd, #0d80ad);");
         eventPane.setHgap(20);
         eventPane.setVgap(20);
-        eventPane.setPrefWrapLength(500);
+        eventPane.setPrefWrapLength(600);
 
         List<Event> events = generateRandomEvents(14);
         for (Event event : events) {
@@ -82,6 +83,7 @@ public class Events {
 
         scrollPane.setContent(eventPane);
         mainContainer.getChildren().addAll(topBar, scrollPane);
+        mainContainer.setStyle("-fx-background-color: linear-gradient(to right, #87CEFA, #0b48cd, #0d80ad);");
         return mainContainer;
     }
 

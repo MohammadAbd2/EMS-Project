@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -37,7 +38,28 @@ public class Application extends javafx.application.Application {
         // Add UI components
         rootContainer.getChildren().add(Navbar.loadNavbar());
         rootContainer.getChildren().add(Slider.loadSlider());
-        rootContainer.getChildren().add(Events.loadEventsComponent());
+
+        // HBox to align SearchFilterBox and Events component side by side
+        HBox mainContentBox = new HBox();
+        mainContentBox.setSpacing(10); // Set some space between the components
+
+        // Create a VBox for the search and filter section (with fixed width)
+        VBox SearchFilterBox = new VBox();
+        SearchFilterBox.setPrefWidth(300);
+        SearchFilterBox.getChildren().add(Events.loadEventsComponent());
+        SearchFilterBox.setStyle("-fx-background-color: linear-gradient(to right, #87CEFA, #0b48cd, #0d80ad);");
+
+        // Create the FlowPane for events, which is already set in loadEventsComponent
+        VBox eventsContainer = Events.loadEventsComponent(); // Use the VBox returned from loadEventsComponent()
+
+        // Allow the events container to grow and fill the remaining space
+        HBox.setHgrow(eventsContainer, javafx.scene.layout.Priority.ALWAYS);
+
+        // Add both VBox elements to the HBox
+        mainContentBox.getChildren().addAll(SearchFilterBox, eventsContainer);
+
+        // Add the main content box to the root container
+        rootContainer.getChildren().add(mainContentBox);
 
         // Wrap rootContainer inside ScrollPane
         ScrollPane scrollPane = new ScrollPane();
@@ -71,6 +93,8 @@ public class Application extends javafx.application.Application {
         stage.setTitle("Easv Ticket Bar System");
         stage.show();
     }
+
+
 
 
 

@@ -154,7 +154,11 @@ eventsContainer
 ---------------
 */
 
-
+VBox Button {
+    -fx-background-radius: 10;
+    -fx-background-color: #F5F5F5;
+    -fx-text-fill: #757575;
+}
 
 #eventsContainer {
     -fx-background-color: #333333;
