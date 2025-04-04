@@ -42,7 +42,7 @@ public class Application extends javafx.application.Application {
         // HBox to align SearchFilterBox and Events component side by side
         HBox mainContentBox = new HBox();
         mainContentBox.setSpacing(10); // Set some space between the components
-
+        mainContentBox.setStyle("-fx-background-color: #87CEFA");
         // Create a VBox for the search and filter section (with fixed width)
         VBox SearchFilterBox = new VBox();
         SearchFilterBox.setPrefWidth(300);
@@ -85,18 +85,12 @@ public class Application extends javafx.application.Application {
             e.printStackTrace();
         }
 
-        // Set Application Icon
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("/img/logo.png")));
-
         // Set Scene and Show
         stage.setScene(scene);
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/img/logo.png")));
         stage.setTitle("Easv Ticket Bar System");
         stage.show();
     }
-
-
-
-
 
     public static void main(String[] args) {
         launch();

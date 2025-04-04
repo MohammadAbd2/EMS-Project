@@ -160,6 +160,11 @@ VBox Button {
     -fx-text-fill: #757575;
 }
 
+VBox Button:hover {
+    -fx-cursor: hand;
+}
+
+
 #eventsContainer {
     -fx-background-color: #333333;
 }

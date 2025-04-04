@@ -26,7 +26,7 @@ public class Events {
         VBox mainContainer = new VBox();
         mainContainer.setPadding(new Insets(15));
         mainContainer.setPrefWidth(700);
-        mainContainer.setAlignment(Pos.TOP_RIGHT); // Align TOP_RIGHT
+        mainContainer.setAlignment(Pos.TOP_RIGHT);
 
         // Set width after the scene is initialized
         Platform.runLater(() -> {
@@ -48,6 +48,7 @@ public class Events {
         filterBox.setStyle("-fx-background-color: transparent;");
         filterBox.setAlignment(Pos.TOP_RIGHT);
         Button sortByBtn = new Button("Sort By");
+        sortByBtn.setStyle("-fx-background-color: #DF6800; -fx-text-fill: white;");
         Button priceLowBtn = new Button("Price: Lower");
         Button priceHighBtn = new Button("Price: Highest");
         Button latestBtn = new Button("Latest");
