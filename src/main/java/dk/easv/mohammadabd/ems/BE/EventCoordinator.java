@@ -1,13 +1,13 @@
 package dk.easv.mohammadabd.ems.BE;
 
-public class Admin {
+public class EventCoordinator {
     private int id;
     private String username;
     private String password;
     private String email;
     private int phoneNumber;
 
-    public Admin(int id, String username, String password, String email, int phoneNumber) {
+    public EventCoordinator(int id, String username, String password, String email, int phoneNumber) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -60,7 +60,7 @@ public class Admin {
 
     @Override
     public String toString() {
-        return "Admin [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email
-                + ", phoneNumber=" + phoneNumber + "]";
+        return "Customer [id=" + id + ", username=" + username + ", password=" + password
+                + ", email=" + email + ", phoneNumber=" + phoneNumber + "]";
     }
 }

@@ -1,57 +1,66 @@
 package dk.easv.mohammadabd.ems.BE;
 
 public class Customer {
+    private int id;
+    private String username;
+    private String password;
+    private String email;
+    private int phoneNumber;
 
-    int customerID;
-    String customerName;
-    String customerAddress;
-    String customerPhone;
-    String customerEmail;
-
-
-    public Customer(int customerID, String customerName, String customerAddress, String customerPhone, String customerEmail) {
-        this.customerID = customerID;
-        this.customerName = customerName;
-        this.customerAddress = customerAddress;
-        this.customerPhone = customerPhone;
-        this.customerEmail = customerEmail;
-
+    public Customer(int id, String username, String password, String email, int phoneNumber) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 
-    public int getCustomerID() {
-        return customerID;
-    }
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
+    // getters and setters
+    public int getId() {
+        return id;
     }
 
-    public String getCustomerName() {
-        return customerName;
-    }
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public String getUsername() {
+        return username;
     }
 
-    public String getCustomerAddress() {
-        return customerAddress;
-    }
-    public void setCustomerAddress(String customerAddress) {
-        this.customerAddress = customerAddress;
-    }
-    public String getCustomerPhone() {
-        return customerPhone;
+    public String getPassword() {
+        return password;
     }
 
-    public void setCustomerPhone(String customerPhone) {
-        this.customerPhone = customerPhone;
+    public String getEmail() {
+        return email;
     }
 
-    public String getCustomerEmail() {
-        return customerEmail;
+    public int getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setCustomerEmail(String customerEmail) {
-        this.customerEmail = customerEmail;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+
+    @Override
+    public String toString() {
+        return "EventCoordinator [id=" + id + ", username=" + username + ", password=" + password
+                + ", email=" + email + ", phoneNumber=" + phoneNumber + "]";
     }
 }
-
