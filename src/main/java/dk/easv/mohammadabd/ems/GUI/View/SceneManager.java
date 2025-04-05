@@ -15,12 +15,12 @@ public class SceneManager {
     private static Stage primaryStage; // Store the primary stage
     private static final Map<String, Parent> scenes = new HashMap<>(); // Store scenes
 
-    // ✅ Set the primary stage
+    // Set the primary stage
     public static void setStage(Stage stage) {
         primaryStage = stage;
     }
 
-    // ✅ Load a scene and store it
+    // Load a scene and store it
     public static void loadScene(String name, String fxmlPath) throws IOException {
         URL fxmlUrl = SceneManager.class.getResource(fxmlPath);
         if (fxmlUrl == null) {
@@ -33,7 +33,7 @@ public class SceneManager {
         scenes.put(name, root);
     }
 
-    // ✅ Switch to a loaded scene
+    // Switch to a loaded scene
     public static void switchScene(String name) {
         if (primaryStage == null) {
             System.err.println("Error: Primary stage is not set.");
@@ -50,7 +50,7 @@ public class SceneManager {
         primaryStage.show();
     }
 
-    // ✅ Load a scene as Parent (for adding inside VBox)
+    // Load a scene as Parent
     public static Parent loadSceneAsParent(String fxmlPath) throws IOException {
         URL fxmlUrl = SceneManager.class.getResource(fxmlPath);
         if (fxmlUrl == null) {

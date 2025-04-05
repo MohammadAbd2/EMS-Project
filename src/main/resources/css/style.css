@@ -46,6 +46,12 @@ loginPage
     -fx-padding: 14px 0px 0px 15px;
     -fx-background-color: null !important;
 }
+TextField{
+    -fx-text-fill: rgba(39, 36, 36, 0.82);
+}
+PasswordField{
+    -fx-text-fill: rgba(39, 36, 36, 0.82);
+}
 .scroll-pane {
     -fx-background-color: linear-gradient(to bottom, rgba(229, 188, 54, 0.9), #0d82ad);
     -fx-fit-to-width: true;
@@ -109,6 +115,11 @@ loginPage / createAccPage
 ---------------
 */
 
+#loginPageContent Label {
+    -fx-text-fill: rgba(229, 188, 54, 0.9) !important;
+}
+
+
 .text-field, .password-field {
     -fx-background-radius: 10;
     -fx-background-color: white;
@@ -127,10 +138,39 @@ loginPage / createAccPage
 }
 
 .hyperlink {
-    -fx-text-fill: white;
+    -fx-text-fill: white !important;
     -fx-font-size: 13px;
 }
 
 .hyperlink:hover {
-    -fx-text-fill: #ffcc00;
+    -fx-text-fill: rgba(39, 36, 36, 0.82) !important;
+    -fx-text-decoration: none !important;
+}
+
+
+/*
+---------------
+eventsContainer
+---------------
+*/
+
+VBox Button {
+    -fx-background-radius: 10;
+    -fx-background-color: #F5F5F5;
+    -fx-text-fill: #757575;
+}
+
+VBox Button:hover {
+    -fx-cursor: hand;
+}
+
+
+#eventsContainer {
+    -fx-background-color: #333333;
+}
+#eventsContainer VBox{
+    -fx-background-color: transparent;
+}
+#searchBox {
+    -fx-background-color: #333333;
 }
