@@ -11,13 +11,10 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Application extends javafx.application.Application {
     @FXML
@@ -42,12 +39,11 @@ public class Application extends javafx.application.Application {
         // HBox to align SearchFilterBox and Events component side by side
         HBox mainContentBox = new HBox();
         mainContentBox.setSpacing(10); // Set some space between the components
-        mainContentBox.setStyle("-fx-background-color: #87CEFA");
+
         // Create a VBox for the search and filter section (with fixed width)
         VBox SearchFilterBox = new VBox();
         SearchFilterBox.setPrefWidth(300);
         SearchFilterBox.getChildren().add(Events.loadEventsComponent());
-        SearchFilterBox.setStyle("-fx-background-color: linear-gradient(to right, #87CEFA, #0b48cd, #0d80ad);");
 
         // Create the FlowPane for events, which is already set in loadEventsComponent
         VBox eventsContainer = Events.loadEventsComponent(); // Use the VBox returned from loadEventsComponent()
@@ -68,7 +64,6 @@ public class Application extends javafx.application.Application {
         scrollPane.setFitToHeight(true);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollPane.getStyleClass().add("scroll-pane"); // Apply CSS styles
 
         // Add all the Containers to the Application for loading the scene
         applicationRoot.getChildren().add(windowBarBox);
@@ -76,14 +71,15 @@ public class Application extends javafx.application.Application {
 
         // Now set ScrollPane as the root scene node
         Scene scene = new Scene(applicationRoot, 1200, 800);
-        scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
 
-        // Remove Default Window Borders
-        try {
-            stage.initStyle(javafx.stage.StageStyle.UNDECORATED);
-        } catch (Exception e) {
-            e.printStackTrace();
+        // Add CSS only if not already added
+        List<String> stylesheets = scene.getStylesheets();
+        if (!stylesheets.contains(getClass().getResource("/css/style.css").toExternalForm())) {
+            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
         }
+
+        // Set Stage style before calling show()
+        stage.initStyle(StageStyle.UNDECORATED);
 
         // Set Scene and Show
         stage.setScene(scene);

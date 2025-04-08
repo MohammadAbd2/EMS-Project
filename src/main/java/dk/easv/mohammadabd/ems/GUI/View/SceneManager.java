@@ -20,6 +20,8 @@ public class SceneManager {
         primaryStage = stage;
     }
 
+
+
     // Load a scene and store it
     public static void loadScene(String name, String fxmlPath) throws IOException {
         URL fxmlUrl = SceneManager.class.getResource(fxmlPath);
@@ -61,4 +63,15 @@ public class SceneManager {
         FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
         return fxmlLoader.load();
     }
+
+    public static void showMainScene(Stage stage) {
+        try {
+            // استخدم Application class لعرض محتوى التطبيق
+            Application app = new Application();  // استخدام تطبيقك المخصص هنا
+            app.start(primaryStage); // قم بتمرير نفس الـ Stage لبدء التطبيق
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
+
