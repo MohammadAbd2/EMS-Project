@@ -46,6 +46,8 @@ public class Navbar {
         } else {
             // Remove profile image or show empty image
             ImageView profile = (ImageView) navbarRoot.lookup("#profile_pic");
+            profile.setFitWidth(70);
+            profile.setFitHeight(60);
             setImage(navbarRoot, "#profile_pic", GUEST_PIC_PATH);
 
             // Hide all tabs except "home"

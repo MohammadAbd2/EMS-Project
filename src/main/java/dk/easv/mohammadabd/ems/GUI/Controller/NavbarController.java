@@ -28,8 +28,8 @@ public class NavbarController {
         profile_pic.setImage(image);
 
         // Apply circular clipping
-        Circle clip = new Circle(profile_pic.getFitWidth() / 2.2, profile_pic.getFitHeight() / 2.2,
-                Math.min(profile_pic.getFitWidth(), profile_pic.getFitHeight()) / 2.2);
+        Circle clip = new Circle(profile_pic.getFitWidth() / 1.75, profile_pic.getFitHeight() / 2.5,
+                Math.min(profile_pic.getFitWidth(), profile_pic.getFitHeight()) / 2.4);
         profile_pic.setClip(clip);
     }
 
