@@ -2,11 +2,14 @@ package dk.easv.mohammadabd.ems.GUI.Controller;
 
 import dk.easv.mohammadabd.ems.BE.Ticket;
 import dk.easv.mohammadabd.ems.BLL.TicketBL;
+import dk.easv.mohammadabd.ems.GUI.Model.TicketML;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -43,10 +46,7 @@ public class TicketController {
 
     @FXML
     private void initialize() {
-        // Initialize the buttons with their actions
-        btnCreate.setOnAction(event -> createTicket());
-        btnUpdate.setOnAction(event -> updateTicket());
-        btnDelete.setOnAction(event -> deleteTicket());
+
     }
 
     /**
@@ -54,20 +54,26 @@ public class TicketController {
      */
     @FXML
     private void createTicket() {
+        Ticket ticket = new Ticket();
+        ticket.setEventName(eventNameField.getText());
+        ticket.setEnd_time(LocalDateTime.parse(endTimeField.getText()));
+        ticket.setStart_time(LocalDateTime.parse(startTimeField.getText()));
+        ticket.setLocation(locationField.getText());
+        ticket.setLocationGuidance(locationGuidanceField.getText());
+        ticket.setNotes(notesField.getText());
+        ticket.setBarcode(barcodeField.getText());
+
         try {
-            String eventName = eventNameField.getText();
-            int startTime = Integer.parseInt(startTimeField.getText());
-            int endTime = Integer.parseInt(endTimeField.getText());
-            String location = locationField.getText();
-            String locationGuidance = locationGuidanceField.getText();
-            String notes = notesField.getText();
+            // Ensure start_time and end_time are not null and properly formatted
+            if (ticket.getStart_time() != null && ticket.getEnd_time() != null) {
+                Timestamp startTime = Timestamp.valueOf(ticket.getStart_time().toLocalDate().atTime(ticket.getStart_time().toLocalTime().getHour(), ticket.getStart_time().toLocalTime().getMinute(), ticket.getStart_time().toLocalTime().getSecond()));
+                Timestamp endTime = Timestamp.valueOf(ticket.getEnd_time().toLocalDate().atTime(ticket.getEnd_time().toLocalTime().getHour(), ticket.getEnd_time().toLocalTime().getMinute(), ticket.getEnd_time().toLocalTime().getSecond()));
 
-            Ticket ticket = ticketBL.createTicket(eventName, startTime, endTime, location, locationGuidance, notes);
-
-            barcodeField.setText(ticket.getBarcode()); // Display the generated barcode
-            clearFields(); // Clear input fields after creation
-
-        } catch (SQLException | NumberFormatException e) {
+                System.out.println(startTime + " " + endTime);
+            } else {
+                throw new IllegalArgumentException("Start time or end time is null");
+            }
+        }  catch (NumberFormatException e) {
             e.printStackTrace();
         }
     }
@@ -80,8 +86,8 @@ public class TicketController {
         if (selectedTicket != null) {
             try {
                 selectedTicket.setEventName(eventNameField.getText());
-                selectedTicket.setStart_time(Integer.parseInt(startTimeField.getText()));
-                selectedTicket.setEnd_time(Integer.parseInt(endTimeField.getText()));
+                selectedTicket.setStart_time(Timestamp.valueOf(startTimeField.getText()).toLocalDateTime());
+                selectedTicket.setEnd_time(Timestamp.valueOf(endTimeField.getText()).toLocalDateTime());
                 selectedTicket.setLocation(locationField.getText());
                 selectedTicket.setLocationGuidance(locationGuidanceField.getText());
                 selectedTicket.setNotes(notesField.getText());
@@ -110,9 +116,17 @@ public class TicketController {
         }
     }
     @FXML
-    private void generatData(){
-        TicketBL ticketBL = new TicketBL();
-        ticketBL.generateRandomData();
+    private void generatData() throws SQLException {
+        TicketML ticketML = new TicketML();
+        Ticket ticket = ticketML.generateTicket();
+        eventNameField.setText(ticket.getEventName());
+        startTimeField.setText(String.valueOf(ticket.getStart_time()));
+        endTimeField.setText(String.valueOf(ticket.getEnd_time()));
+        locationField.setText(ticket.getLocation());
+        locationGuidanceField.setText(ticket.getLocationGuidance());
+        notesField.setText(ticket.getNotes());
+        barcodeField.setText(ticket.getBarcode());
+
     }
 
     /**

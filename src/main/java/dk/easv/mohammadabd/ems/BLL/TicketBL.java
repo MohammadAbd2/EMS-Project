@@ -1,9 +1,10 @@
 package dk.easv.mohammadabd.ems.BLL;
-
+import java.time.format.DateTimeFormatter;
 import dk.easv.mohammadabd.ems.BE.Ticket;
 import dk.easv.mohammadabd.ems.DAL.DBTicket;
 
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -18,7 +19,7 @@ public class TicketBL {
     /**
      * Creates a new ticket with a generated UUID and barcode.
      */
-    public Ticket createTicket(String eventName, int start_time, int end_time, String location, String locationGuidance, String notes) throws SQLException {
+    public Ticket createTicket(String eventName, LocalDateTime start_time, LocalDateTime end_time, String location, String locationGuidance, String notes) throws SQLException {
         UUID uuid = UUID.randomUUID(); // Generate a unique ID for the ticket
         String barcode = generateBarcode(uuid); // Generate a barcode based on the UUID
         Ticket ticket = new Ticket(uuid, eventName, start_time, end_time, location, locationGuidance, notes, barcode);
@@ -57,31 +58,27 @@ public class TicketBL {
     /**
      * Generates a ticket with random data, saves it in the database, and prints its details.
      */
-    public void generateRandomData() {
-        try {
-            Random random = new Random();
-            String eventName = "Event #" + random.nextInt(1000);
-            int startTime = 1600 + random.nextInt(100);  // e.g., 1600 to 1699
-            int endTime = startTime + random.nextInt(100);
-            String location = "Location " + (char)(65 + random.nextInt(26));
-            String guidance = "Follow signs to gate " + random.nextInt(10);
-            String notes = "This is a randomly generated ticket.";
+    public Ticket generateRandomData() throws SQLException {
+        // Generate random data
+        UUID UUserID = UUID.randomUUID();
+        String randomEventName = "Event " + UUID.randomUUID().toString();
 
-            Ticket ticket = createTicket(eventName, startTime, endTime, location, guidance, notes);
+        int randomHour = new Random().nextInt(24);
+        LocalDateTime randomStartTime = LocalDateTime.now().withHour(randomHour).withMinute(0).withSecond(0).withNano(0);
+        // Generate end time, 2 hours after the start time
+        LocalDateTime randomEndTime = randomStartTime.plusHours(2);
+        // Format for display
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
-            // Print ticket information
-            System.out.println("Ticket created successfully:");
-            System.out.println("UUID: " + ticket.getId());
-            System.out.println("Barcode: " + ticket.getBarcode());
-            System.out.println("Event Name: " + ticket.getEventName());
-            System.out.println("Start Time: " + ticket.getStart_time());
-            System.out.println("End Time: " + ticket.getEnd_time());
-            System.out.println("Location: " + ticket.getLocation());
-            System.out.println("Location Guidance: " + ticket.getLocationGuidance());
-            System.out.println("Notes: " + ticket.getNotes());
+        randomStartTime.format(formatter);
+        randomEndTime = randomStartTime.plusHours(2); // Example: end time 2 hours after start
+        String randomLocation = "Location " + (int) (Math.random() * 100);
+        String randomLocationGuidance = "Guidance for " + randomLocation;
+        String randomNotes = "Notes for the event.";
+        String randomBarcode = UUID.randomUUID().toString(); // Example barcode
 
-        } catch (SQLException e) {
-            System.err.println("Error creating random ticket: " + e.getMessage());
-        }
+        // Create and return a Ticket object with the generated data
+        Ticket ticket = new Ticket(UUserID, randomEventName, randomStartTime, randomEndTime, randomLocation, randomLocationGuidance, randomNotes, randomBarcode);
+        return ticket;
     }
 }

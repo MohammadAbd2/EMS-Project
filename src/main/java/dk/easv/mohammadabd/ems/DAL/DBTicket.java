@@ -27,8 +27,8 @@ public class DBTicket {
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, ticket.getId().toString());
             pstmt.setString(2, ticket.getEventName());
-            pstmt.setInt(3, ticket.getStart_time());
-            pstmt.setInt(4, ticket.getEnd_time());
+            pstmt.setTimestamp(3, Timestamp.valueOf(ticket.getStart_time()));  // Corrected to use Timestamp
+            pstmt.setTimestamp(4, Timestamp.valueOf(ticket.getEnd_time()));    // Corrected to use Timestamp
             pstmt.setString(5, ticket.getLocation());
             pstmt.setString(6, ticket.getLocationGuidance());
             pstmt.setString(7, ticket.getNotes());
@@ -54,8 +54,8 @@ public class DBTicket {
                 Ticket ticket = new Ticket(
                         UUID.fromString(rs.getString("ticket_id")),
                         rs.getString("event_name"),
-                        rs.getInt("start_time"),
-                        rs.getInt("end_time"),
+                        rs.getTimestamp("start_time").toLocalDateTime(),  // Corrected to convert Timestamp to LocalDateTime
+                        rs.getTimestamp("end_time").toLocalDateTime(),    // Corrected to convert Timestamp to LocalDateTime
                         rs.getString("location"),
                         rs.getString("location_guidance"),
                         rs.getString("notes"),
@@ -79,8 +79,8 @@ public class DBTicket {
         try (Connection conn = dbConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, ticket.getEventName());
-            pstmt.setInt(2, ticket.getStart_time());
-            pstmt.setInt(3, ticket.getEnd_time());
+            pstmt.setTimestamp(2, Timestamp.valueOf(ticket.getStart_time()));  // Corrected to use Timestamp
+            pstmt.setTimestamp(3, Timestamp.valueOf(ticket.getEnd_time()));    // Corrected to use Timestamp
             pstmt.setString(4, ticket.getLocation());
             pstmt.setString(5, ticket.getLocationGuidance());
             pstmt.setString(6, ticket.getNotes());
