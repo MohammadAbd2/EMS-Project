@@ -20,6 +20,9 @@ public class SceneManager {
         primaryStage = stage;
     }
 
+    public static Stage getStage() {
+        return primaryStage;}
+
     // ✅ Load a scene and store it
     public static void loadScene(String name, String fxmlPath) throws IOException {
         URL fxmlUrl = SceneManager.class.getResource(fxmlPath);
@@ -61,4 +64,14 @@ public class SceneManager {
         FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
         return fxmlLoader.load();
     }
+     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public static void registerScene(String name, Scene scene) {
+        if (primaryStage == null) {
+            System.err.println("Primary stage not set.");
+            return;
+        }
+        scenes.put(name, scene.getRoot());
+    }
+
+
 }

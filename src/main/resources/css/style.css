@@ -169,3 +169,97 @@ VBox Button {
 #searchBox {
     -fx-background-color: #333333;
 }
+
+/*
+---------------
+eventsPage
+---------------
+*/
+
+#rootPane {
+    -fx-background-color: #0077DF;
+}
+#RegularTicketPane {
+    -fx-background-color: #000000;
+}
+#RegularBox {
+    -fx-background-color: #3C557B;
+    -fx-background-insets: 0 15 0 15;
+}
+
+#RegularTxtArea {
+    -fx-control-inner-background: #3C557B;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+
+}
+
+#VipBox {
+        -fx-background-color: #00192F;
+        -fx-border-color: #E5C100;
+        -fx-border-width: 2px;
+        -fx-border-radius: 10px;
+        -fx-background-radius: 10px;
+
+    }
+
+
+
+#VipTxtArea {
+    -fx-control-inner-background: #00192F;
+    -fx-background-color: transparent;
+    -fx-text-fill: #FFD700;
+}
+
+#heartLabel {
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+#eventNameContainer {
+    -fx-background-color: #0077DF;
+    -fx-text-fill: white;
+    -fx-padding: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+#eventInfoContainer {
+    -fx-background-color: #0077DF;
+    -fx-text-fill: white;
+    -fx-padding: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+
+#eventAboutContainer {
+    -fx-control-inner-background: #0077DF;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-padding: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-border-color: #0077DF;
+    -fx-border-width: 2px;
+    -fx-border-insets: 0 15 0 15;
+}
+
+
+#vipButton {
+    -fx-background-color: #2C2C2C;
+    -fx-text-fill: #FFD700;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 8px;
+
+    -fx-cursor: hand;
+}
+
+#RegularButton {
+    -fx-background-color: #2C2C2C;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 8px;
+
+    -fx-cursor: hand;
+}

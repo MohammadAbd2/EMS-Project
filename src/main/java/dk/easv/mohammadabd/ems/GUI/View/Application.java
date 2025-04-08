@@ -13,15 +13,15 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+
 
 public class Application extends javafx.application.Application {
     @FXML
     private ScrollPane scrollPane;
+
+    public static Scene buildMainScene(Stage stage) {
+        return stage.getScene();
+    }
 
     @Override
     public void start(Stage stage) throws IOException {

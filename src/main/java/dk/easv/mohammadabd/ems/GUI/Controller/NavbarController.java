@@ -128,8 +128,8 @@ public class NavbarController {
             rootContainer.getChildren().add(Navbar.loadNavbar());
 
             //add the new component here bellow
-            Body.getChildren().add(Slider.loadSlider());
-            Body.getChildren().add(Slider.loadSlider());
+            Body.getChildren().add(EventPage.loadEventPage());
+
 
 
             // create and add the ScrollPane
