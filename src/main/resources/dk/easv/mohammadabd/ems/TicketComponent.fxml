@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.*?>
+
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="dk.easv.mohammadabd.ems.GUI.Controller.TicketController"
+      stylesheets="/css/style.css"
+>
+
+    <TextField fx:id="eventNameField" promptText="Event Name"/>
+    <TextField fx:id="startTimeField" promptText="Start Time"/>
+    <TextField fx:id="endTimeField" promptText="End Time"/>
+    <TextField fx:id="locationField" promptText="Location"/>
+    <TextField fx:id="locationGuidanceField" promptText="Location Guidance"/>
+    <TextField fx:id="notesField" promptText="Notes"/>
+
+    <!-- Make sure HBox is imported and used properly -->
+    <HBox spacing="10">
+        <Button fx:id="btnCreate" text="Create"/>
+        <Button fx:id="btnUpdate" text="Update"/>
+        <Button fx:id="btnDelete" text="Delete"/>
+        <Button fx:id="btnGenerate" text="Genrate" onAction="#generatData"></Button>
+        <Button fx:id="btnClear" text="Clear" onAction="#clearFields"></Button>
+    </HBox>
+</VBox>

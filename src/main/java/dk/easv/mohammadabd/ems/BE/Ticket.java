@@ -1,17 +1,18 @@
 package dk.easv.mohammadabd.ems.BE;
 
-import java.util.Date;
+import java.util.UUID;
 
 public class Ticket {
-    private int id;
+    private UUID id;
     private String eventName;
     private int start_time;
     private int end_time;
     private String location;
     private String locationGuidance;
     private String notes;
+    private String barcode;
 
-    public Ticket(int id, String eventName, int start_time, int end_time, String location, String locationGuidance, String notes) {
+    public Ticket(UUID id, String eventName, int start_time, int end_time, String location, String locationGuidance, String notes, String barcode) {
         this.id = id;
         this.eventName = eventName;
         this.start_time = start_time;
@@ -19,12 +20,13 @@ public class Ticket {
         this.location = location;
         this.locationGuidance = locationGuidance;
         this.notes = notes;
+        this.barcode = barcode;
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -70,8 +72,10 @@ public class Ticket {
         this.notes = notes;
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
+    public String getBarcode() {
+        return barcode;
+    }
+    public void setBarcode(String barcode) {
+        this.barcode = barcode;
     }
 }

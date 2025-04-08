@@ -25,6 +25,7 @@ public class Login {
         URL cssUrl = Login.class.getResource(CSS_PATH);
         if (cssUrl != null) {
             loginRoot.getStylesheets().add(cssUrl.toExternalForm());
+
         } else {
             System.err.println("Warning: CSS file not found at " + CSS_PATH);
         }

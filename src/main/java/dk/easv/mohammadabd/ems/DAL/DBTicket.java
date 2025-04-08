@@ -1,9 +1,11 @@
 package dk.easv.mohammadabd.ems.DAL;
 
 import dk.easv.mohammadabd.ems.BE.Ticket;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class DBTicket {
     private final DBConnector dbConnector;
@@ -12,29 +14,36 @@ public class DBTicket {
         dbConnector = new DBConnector();
     }
 
-    // Create a new ticket
+    /**
+     * Inserts a new ticket into the database.
+     *
+     * @param ticket the Ticket object to insert
+     * @throws SQLException if a database access error occurs
+     */
     public void createTicket(Ticket ticket) throws SQLException {
-        String sql = "INSERT INTO ticket (event_name, start_time, end_time, location, location_guidance, notes) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO ticket (ticket_id, event_name, start_time, end_time, location, location_guidance, notes, barcode) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = dbConnector.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            pstmt.setString(1, ticket.getEventName());
-            pstmt.setInt(2, ticket.getStart_time());
-            pstmt.setInt(3, ticket.getEnd_time());
-            pstmt.setString(4, ticket.getLocation());
-            pstmt.setString(5, ticket.getLocationGuidance());
-            pstmt.setString(6, ticket.getNotes());
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, ticket.getId().toString());
+            pstmt.setString(2, ticket.getEventName());
+            pstmt.setInt(3, ticket.getStart_time());
+            pstmt.setInt(4, ticket.getEnd_time());
+            pstmt.setString(5, ticket.getLocation());
+            pstmt.setString(6, ticket.getLocationGuidance());
+            pstmt.setString(7, ticket.getNotes());
+            pstmt.setString(8, ticket.getBarcode());
 
             pstmt.executeUpdate();
-
-            try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
-                if (generatedKeys.next()) {
-                    ticket.setId(generatedKeys.getInt(1));
-                }
-            }
         }
     }
 
-    // Read all tickets
+    /**
+     * Retrieves all tickets from the database.
+     *
+     * @return a list of Ticket objects
+     * @throws SQLException if a database access error occurs
+     */
     public List<Ticket> getAllTickets() throws SQLException {
         List<Ticket> tickets = new ArrayList<>();
         String sql = "SELECT * FROM ticket";
@@ -42,23 +51,31 @@ public class DBTicket {
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
-                tickets.add(new Ticket(
-                        rs.getInt("ticket_id"),
+                Ticket ticket = new Ticket(
+                        UUID.fromString(rs.getString("ticket_id")),
                         rs.getString("event_name"),
                         rs.getInt("start_time"),
                         rs.getInt("end_time"),
                         rs.getString("location"),
                         rs.getString("location_guidance"),
-                        rs.getString("notes")
-                ));
+                        rs.getString("notes"),
+                        rs.getString("barcode")
+                );
+                tickets.add(ticket);
             }
         }
         return tickets;
     }
 
-    // Update an existing ticket
+    /**
+     * Updates an existing ticket in the database.
+     *
+     * @param ticket the Ticket object with updated data
+     * @throws SQLException if a database access error occurs
+     */
     public void updateTicket(Ticket ticket) throws SQLException {
-        String sql = "UPDATE ticket SET event_name = ?, start_time = ?, end_time = ?, location = ?, location_guidance = ?, notes = ? WHERE ticket_id = ?";
+        String sql = "UPDATE ticket SET event_name = ?, start_time = ?, end_time = ?, location = ?, location_guidance = ?, notes = ?, barcode = ? " +
+                "WHERE ticket_id = ?";
         try (Connection conn = dbConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, ticket.getEventName());
@@ -67,18 +84,24 @@ public class DBTicket {
             pstmt.setString(4, ticket.getLocation());
             pstmt.setString(5, ticket.getLocationGuidance());
             pstmt.setString(6, ticket.getNotes());
-            pstmt.setInt(7, ticket.getId());
+            pstmt.setString(7, ticket.getBarcode());
+            pstmt.setString(8, ticket.getId().toString());
 
             pstmt.executeUpdate();
         }
     }
 
-    // Delete a ticket
-    public void deleteTicket(int ticketId) throws SQLException {
+    /**
+     * Deletes a ticket by its UUID.
+     *
+     * @param ticketId the UUID of the ticket to delete
+     * @throws SQLException if a database access error occurs
+     */
+    public void deleteTicket(UUID ticketId) throws SQLException {
         String sql = "DELETE FROM ticket WHERE ticket_id = ?";
         try (Connection conn = dbConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, ticketId);
+            pstmt.setString(1, ticketId.toString());
             pstmt.executeUpdate();
         }
     }

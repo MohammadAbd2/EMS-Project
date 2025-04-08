@@ -35,28 +35,25 @@ public class NavbarController {
 
     public void ticketTab(ActionEvent event) {
         try {
-            // declaration of the variables
+            // Declare the variables
             VBox Application = new VBox();
             VBox WindowBox = new VBox();
-            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             VBox rootContainer = new VBox();
             VBox Body  = new VBox();
-            // Random Component to add to the Tab pages
-            CustomTitleBar customTitleBar = new CustomTitleBar(currentStage);
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            // sort VBoxes
-            Application.getChildren().add(WindowBox);
-            Application.getChildren().add(rootContainer);
+            // Load Header components such as Navbar and CustomTitleBar
+            CustomTitleBar customTitleBar = new CustomTitleBar(currentStage);
             WindowBox.getChildren().add(customTitleBar);
-            rootContainer.getChildren().add(Navbar.loadNavbar());
-            Body.getChildren().add(Slider.loadSlider());
-            Body.getChildren().add(Slider.loadSlider());
-            Body.getChildren().add(Slider.loadSlider());
-            Body.getChildren().add(Slider.loadSlider());
-            Body.getChildren().add(Slider.loadSlider());
-            Body.getChildren().add(Slider.loadSlider());
-            Body.getChildren().add(Slider.loadSlider());
-            // Add the ScrollPane
+            rootContainer.getChildren().add(WindowBox);  // Load the Navbar
+            rootContainer.getChildren().add(Navbar.loadNavbar());  // Load the Navbar
+
+            // Add the Body with the Ticket-specific components
+            Body.getChildren().add(Slider.loadSlider());  // Add the Slider as an example
+            // Here you can add components specific to the Ticket
+            Body.getChildren().add(TicketPage.loadPage(event));
+
+            // Add ScrollPane to enable vertical and horizontal scrolling
             ScrollPane scrollPane = new ScrollPane();
             scrollPane.setContent(Body);
             scrollPane.setFitToWidth(true);
@@ -65,14 +62,18 @@ public class NavbarController {
             scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
             scrollPane.getStyleClass().add("scroll-pane");
 
+            // Add ScrollPane to root container
             rootContainer.getChildren().add(scrollPane);
-            // set the new Scene to the Stage
+
+            // Set the new Scene to the Stage
+            Application.getChildren().add(rootContainer);
             Scene currentScene = currentStage.getScene();
             currentScene.setRoot(Application);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
     public void HomeTab(ActionEvent event) {
         try {
