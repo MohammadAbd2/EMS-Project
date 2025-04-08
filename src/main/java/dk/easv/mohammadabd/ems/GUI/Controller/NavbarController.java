@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,6 +20,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class NavbarController {
+    @FXML
+    private Button ticketTab;
+    @FXML
+    private Button EventTab;
+    @FXML
+    private Button CoordinatorTab;
     @FXML
     private ImageView profile_pic;
 
@@ -31,6 +38,16 @@ public class NavbarController {
         Circle clip = new Circle(profile_pic.getFitWidth() / 1.75, profile_pic.getFitHeight() / 2.5,
                 Math.min(profile_pic.getFitWidth(), profile_pic.getFitHeight()) / 2.4);
         profile_pic.setClip(clip);
+
+        if(LoggedInUser.getInstance().isAuthenticated()){
+            ticketTab.setDisable(false);
+            EventTab.setDisable(false);
+            CoordinatorTab.setDisable(false);
+        }else{
+            ticketTab.setDisable(true);
+            EventTab.setDisable(true);
+            CoordinatorTab.setDisable(true);
+        }
     }
 
     public void ticketTab(ActionEvent event) {
