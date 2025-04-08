@@ -35,7 +35,7 @@ public class DBAdmin {
     // Read all admins
     public List<Admin> getAllAdmins() throws SQLException {
         List<Admin> admins = new ArrayList<>();
-        String sql = "SELECT * FROM admin";
+        String sql = "SELECT * FROM EMSDatabase.EMS_schema.Admin";
         try (Connection conn = dbConnector.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
