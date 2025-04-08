@@ -24,6 +24,9 @@ public class SceneManager {
         return primaryStage;}
 
     // ✅ Load a scene and store it
+
+
+    // Load a scene and store it
     public static void loadScene(String name, String fxmlPath) throws IOException {
         URL fxmlUrl = SceneManager.class.getResource(fxmlPath);
         if (fxmlUrl == null) {
@@ -72,6 +75,7 @@ public class SceneManager {
         }
         scenes.put(name, scene.getRoot());
     }
+
 
 
 }

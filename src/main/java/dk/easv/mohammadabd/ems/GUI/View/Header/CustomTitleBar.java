@@ -14,8 +14,8 @@ public class CustomTitleBar extends HBox {
 
     public CustomTitleBar(Stage stage) {
         // Create Buttons
-        Button minimizeBtn = new Button("🟡");  // Yellow for Minimize
-        Button closeBtn = new Button("❌");  // Red for Close
+        Button minimizeBtn = new Button("🟡");  // O for Minimize
+        Button closeBtn = new Button("❌");  // X for Close
 
         // Button Styles
         minimizeBtn.setStyle("-fx-background-color: transparent; -fx-font-size: 14px;");

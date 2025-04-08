@@ -51,12 +51,6 @@ public class Event {
         return notes;
     }
 
-    // Optional: Override toString method for debugging or logging purposes
-    @Override
-    public String toString() {
-        return "Event{id=" + id + ", eventName='" + eventName + "', start_time=" + start_time + ", end_time=" + end_time + ", location='" + location + "', locationGuidance='" + locationGuidance + "', notes='" + notes + "'}";
-    }
-
     public void setId(int anInt) {
         this.id = anInt;
     }
@@ -78,5 +72,9 @@ public class Event {
     public void setNotes(String notes) {
         this.notes = notes;
     }
-
+    
+    @Override
+    public String toString() {
+        return "Event{id=" + id + ", eventName='" + eventName + "', start_time=" + start_time + ", end_time=" + end_time + ", location='" + location + "', locationGuidance='" + locationGuidance + "', notes='" + notes + "'}";
+    }
 }

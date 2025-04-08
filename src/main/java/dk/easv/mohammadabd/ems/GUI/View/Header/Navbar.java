@@ -1,9 +1,13 @@
 package dk.easv.mohammadabd.ems.GUI.View.Header;
 
+
+import dk.easv.mohammadabd.ems.Utils.LoggedInUser;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.Node;
+import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -12,8 +16,9 @@ public class Navbar {
 
     private static final String NAVBAR_FXML = "/dk/easv/mohammadabd/ems/navbar.fxml";
     private static final String CSS_PATH = "/css/style.css";
-    private static final String LOGO_PATH = "/img/logo.png"; // Path to the logo
-    private static final String PROFILE_PIC_PATH = "/img/profile_picture.png"; // Profile Picture
+    private static final String LOGO_PATH = "/img/logo.png";
+    private static final String PROFILE_PIC_PATH = "/img/profile_picture.png";
+    private static final String GUEST_PIC_PATH = "/img/guest.png";
 
     public static Parent loadNavbar() throws IOException {
         URL fxmlUrl = Navbar.class.getResource(NAVBAR_FXML);
@@ -33,8 +38,25 @@ public class Navbar {
 
         // Set logo
         setImage(navbarRoot, "#logo", LOGO_PATH);
-        // Set profile picture
-        setImage(navbarRoot, "#profile_pic", PROFILE_PIC_PATH);
+
+        boolean isAuthenticated = LoggedInUser.getInstance().isAuthenticated();
+
+        if (isAuthenticated) {
+            setImage(navbarRoot, "#profile_pic", PROFILE_PIC_PATH);
+        } else {
+            // Remove profile image or show empty image
+            ImageView profile = (ImageView) navbarRoot.lookup("#profile_pic");
+            profile.setFitWidth(70);
+            profile.setFitHeight(60);
+            setImage(navbarRoot, "#profile_pic", GUEST_PIC_PATH);
+
+            // Hide all tabs except "home"
+            Node homeTab = navbarRoot.lookup("#homeTab");
+            Node tabContainer = navbarRoot.lookup("#tabContainer"); // Assuming it's an HBox or container with all tabs
+            if (tabContainer instanceof HBox tabs) {
+                tabs.getChildren().removeIf(node -> node != homeTab);
+            }
+        }
 
         return navbarRoot;
     }
