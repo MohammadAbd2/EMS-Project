@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HomePage {
+public class  HomePage {
     public void loadPage(ActionEvent event) {
         try {
             // declaration of the variables
@@ -47,8 +47,10 @@ public class HomePage {
             Application.getChildren().add(rootContainer);
             Scene currentScene = currentStage.getScene();
             currentScene.setRoot(Application);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }

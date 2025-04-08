@@ -4,6 +4,7 @@ import dk.easv.mohammadabd.ems.GUI.View.*;
 import dk.easv.mohammadabd.ems.GUI.View.Header.CustomTitleBar;
 import dk.easv.mohammadabd.ems.GUI.View.Header.Navbar;
 import dk.easv.mohammadabd.ems.GUI.View.Header.Slider;
+import dk.easv.mohammadabd.ems.Utils.LoggedInUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -208,7 +209,13 @@ public class NavbarController {
 
             //add the new component here bellow
             Body.getChildren().add(Slider.loadSlider());
-            Body.getChildren().add(Login.loadLogin());
+            if(LoggedInUser.getInstance().isAuthenticated()){
+                System.out.println("Already logged in");
+
+            }else {
+                Body.getChildren().add(Login.loadLogin());
+            }
+
 
 
             // create and add the ScrollPane

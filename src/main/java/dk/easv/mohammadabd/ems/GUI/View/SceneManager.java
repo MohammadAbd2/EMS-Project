@@ -64,14 +64,5 @@ public class SceneManager {
         return fxmlLoader.load();
     }
 
-    public static void showMainScene(Stage stage) {
-        try {
-            // استخدم Application class لعرض محتوى التطبيق
-            Application app = new Application();  // استخدام تطبيقك المخصص هنا
-            app.start(primaryStage); // قم بتمرير نفس الـ Stage لبدء التطبيق
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }
 
