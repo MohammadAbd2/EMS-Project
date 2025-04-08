@@ -2,7 +2,7 @@ package dk.easv.mohammadabd.ems.Utils;
 
 public class LoggedInUser {
     private static LoggedInUser instance;
-    private boolean isAuthenticated;
+    private boolean isAuthenticated = false;
 
     private LoggedInUser() {}
 

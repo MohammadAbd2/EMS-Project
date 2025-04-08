@@ -18,6 +18,7 @@ public class Navbar {
     private static final String CSS_PATH = "/css/style.css";
     private static final String LOGO_PATH = "/img/logo.png";
     private static final String PROFILE_PIC_PATH = "/img/profile_picture.png";
+    private static final String GUEST_PIC_PATH = "/img/guest.png";
 
     public static Parent loadNavbar() throws IOException {
         URL fxmlUrl = Navbar.class.getResource(NAVBAR_FXML);
@@ -45,13 +46,12 @@ public class Navbar {
         } else {
             // Remove profile image or show empty image
             ImageView profile = (ImageView) navbarRoot.lookup("#profile_pic");
-            if (profile != null) profile.setImage(null);
+            setImage(navbarRoot, "#profile_pic", GUEST_PIC_PATH);
 
             // Hide all tabs except "home"
             Node homeTab = navbarRoot.lookup("#homeTab");
             Node tabContainer = navbarRoot.lookup("#tabContainer"); // Assuming it's an HBox or container with all tabs
-            if (tabContainer instanceof HBox) {
-                HBox tabs = (HBox) tabContainer;
+            if (tabContainer instanceof HBox tabs) {
                 tabs.getChildren().removeIf(node -> node != homeTab);
             }
         }
