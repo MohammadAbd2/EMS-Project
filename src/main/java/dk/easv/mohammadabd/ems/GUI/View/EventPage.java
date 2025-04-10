@@ -1,14 +1,9 @@
 package dk.easv.mohammadabd.ems.GUI.View;
 
-import dk.easv.mohammadabd.ems.GUI.View.Header.CustomTitleBar;
-import dk.easv.mohammadabd.ems.GUI.View.Header.Navbar;
 import dk.easv.mohammadabd.ems.GUI.View.Header.Slider;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
 
 import java.awt.event.MouseEvent;
 import java.io.IOException;

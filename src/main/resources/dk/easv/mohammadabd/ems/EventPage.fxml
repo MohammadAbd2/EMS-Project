@@ -1,68 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="dk.easv.mohammadabd.ems.GUI.Controller.EventPageController"
-            prefHeight="600.0" prefWidth="800.0"
-            fx:id="eventPage"
-            stylesheets="/css/style.css"
-            styleClass="root">
-
-
-   <!-- Event Name -->
-   <TextField fx:id="eventNameField"
-              layoutX="120" layoutY="170"
-              promptText="Event name"
-              prefWidth="600"
-              styleClass="input-field"/>
-
-   <!-- Event Info -->
-   <TextField fx:id="eventInfoField"
-              layoutX="120" layoutY="220"
-              promptText="Event info"
-              prefWidth="600"
-              styleClass="input-field"/>
-
-   <!-- Event Description -->
-   <TextArea fx:id="eventDescriptionField"
-             layoutX="120" layoutY="270"
-             prefWidth="600" prefHeight="100"
-             promptText="Event description"
-             wrapText="true"
-             styleClass="input-field"/>
-
-   <!-- Regular Ticket Area -->
-   <TextArea fx:id="regularTicketField"
-             layoutX="120" layoutY="380"
-             prefWidth="280" prefHeight="80"
-             promptText="Regular Ticket"
-             wrapText="true"
-             styleClass="ticket-area"/>
-
-   <!-- VIP Ticket Area -->
-   <TextArea fx:id="vipTicketField"
-             layoutX="440" layoutY="380"
-             prefWidth="280" prefHeight="80"
-             promptText="VIP Ticket"
-             wrapText="true"
-             styleClass="ticket-area"/>
-
-   <!-- Regular Button -->
-   <Button fx:id="regularTicketButton"
-           layoutX="200" layoutY="480"
-           text="Buy Regular Ticket"
-           prefWidth="160"
-           styleClass="buy-button"/>
-
-   <!-- VIP Button -->
-   <Button fx:id="vipTicketButton"
-           layoutX="440" layoutY="480"
-           text="Buy VIP Ticket"
-           prefWidth="160"
-           styleClass="buy-button"/>
-
+<AnchorPane style="-fx-background-color: #0077DF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+            <VBox fx:id="eventPageBody" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" spacing="20.0" style="-fx-background-color: #0077DF;">
+                <children>
+            <Pane>
+               <children>
+                    <ImageView fx:id="topImageView" fitHeight="323.0" fitWidth="953.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" visible="false">
+                        <image>
+                            <Image url="@/img/slider_img.png" />
+                        </image>
+                    </ImageView>
+               </children>
+            </Pane>
+                    <TextField fx:id="eventNameContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" promptText="Event name">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </TextField>
+                    <TextField fx:id="eventInfoContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" promptText="Co-ordinator name • $$ • Event adress">
+                        <VBox.margin>
+                            <Insets />
+                        </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+                    </TextField>
+                    <TextArea fx:id="eventAboutContainer" nodeOrientation="LEFT_TO_RIGHT" promptText="Event description">
+                        <VBox.margin>
+                            <Insets top="10.0" />
+                        </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+                    </TextArea>
+                  <TextArea fx:id="RegularTxtArea" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" promptText="Ticket type">
+                      <font>
+                          <Font size="14.0" />
+                      </font>
+                  </TextArea>
+                  <TextArea fx:id="VipTxtArea" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" promptText="VIP ticket type">
+                      <font>
+                          <Font size="14.0" />
+                      </font>
+                  </TextArea>
+                <HBox alignment="CENTER" spacing="100.0" style="-fx-background-color: #0077DF;">
+                    <children>
+                        <Button fx:id="RegularButton" mnemonicParsing="false" prefHeight="41.0" prefWidth="278.0" text="Regular  Ticket- 50$" textFill="#f5f5f5">
+                            <font>
+                                <Font size="19.0" />
+                            </font>
+                  </Button>
+                        <Button fx:id="vipButton" mnemonicParsing="false" prefHeight="41.0" prefWidth="278.0" text="VIP  Ticket- 200$" textFill="#f4dc02">
+                            <font>
+                                <Font size="19.0" />
+                            </font>
+                  </Button>
+                    </children>
+               <padding>
+                  <Insets top="30.0" />
+               </padding>
+                </HBox>
+                </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+            </VBox>
+   </children>
 </AnchorPane>

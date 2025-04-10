@@ -14,7 +14,7 @@ public class Event {
             VBox rootContainer = new VBox();
             VBox body = new VBox();
 
-            FXMLLoader loader = new FXMLLoader(TicketPage.class.getResource("/dk/easv/mohammadabd/ems/EventPageBruno.fxml"));
+            FXMLLoader loader = new FXMLLoader(TicketPage.class.getResource("/dk/easv/mohammadabd/ems/EventPage.fxml"));
             Parent ticketContent = loader.load();
 
             body.getChildren().add(ticketContent);

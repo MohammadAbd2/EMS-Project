@@ -209,7 +209,6 @@ eventsPage
 }
 #RegularBox {
     -fx-background-color: #3C557B;
-    -fx-background-insets: 0 15 0 15;
 }
 
 #RegularTxtArea {
@@ -245,7 +244,6 @@ eventsPage
 #eventNameContainer {
     -fx-background-color: #0077DF;
     -fx-text-fill: white;
-    -fx-padding: 10px;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
 }
@@ -253,7 +251,6 @@ eventsPage
 #eventInfoContainer {
     -fx-background-color: #0077DF;
     -fx-text-fill: white;
-    -fx-padding: 10px;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
 }
@@ -263,19 +260,16 @@ eventsPage
     -fx-control-inner-background: #0077DF;
     -fx-background-color: transparent;
     -fx-text-fill: white;
-    -fx-padding: 10px;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
     -fx-border-color: #0077DF;
     -fx-border-width: 2px;
-    -fx-border-insets: 0 15 0 15;
 }
 
 
 #vipButton {
     -fx-background-color: #2C2C2C;
     -fx-text-fill: #FFD700;
-    -fx-padding: 10px 20px;
     -fx-background-radius: 8px;
 
     -fx-cursor: hand;
@@ -283,7 +277,6 @@ eventsPage
 
 #RegularButton {
     -fx-background-color: #2C2C2C;
-    -fx-padding: 10px 20px;
     -fx-background-radius: 8px;
 
     -fx-cursor: hand;
