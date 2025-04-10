@@ -1,14 +1,9 @@
 package dk.easv.mohammadabd.ems.GUI.View;
 
-import dk.easv.mohammadabd.ems.GUI.View.Header.CustomTitleBar;
-import dk.easv.mohammadabd.ems.GUI.View.Header.Navbar;
 import dk.easv.mohammadabd.ems.GUI.View.Header.Slider;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
 
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -20,6 +15,7 @@ public class EventPage {
             VBox Body = new VBox();
             //add the new component here bellow
             Body.getChildren().add(Slider.loadSlider("/img/slider_img.png"));
+            Body.getChildren().add(Ticket.loadPage());
             // add the fxml to the body
             Body.getChildren().add(loader.load());
 
