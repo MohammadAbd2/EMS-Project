@@ -11,9 +11,9 @@ public class Ticket {
     private String location;
     private String locationGuidance;
     private String notes;
-    private String barcode;
+    private String qrcode;
 
-    public Ticket(UUID id, String eventName, LocalDateTime start_time, LocalDateTime end_time, String location, String locationGuidance, String notes, String barcode) {
+    public Ticket(UUID id, String eventName, LocalDateTime start_time, LocalDateTime end_time, String location, String locationGuidance, String notes, String qrcode) {
         this.id = id;
         this.eventName = eventName;
         this.start_time = start_time;
@@ -21,7 +21,7 @@ public class Ticket {
         this.location = location;
         this.locationGuidance = locationGuidance;
         this.notes = notes;
-        this.barcode = barcode;
+        this.qrcode = qrcode;
     }
 
     public Ticket() {
@@ -84,11 +84,11 @@ public class Ticket {
         this.notes = notes;
     }
 
-    public String getBarcode() {
-        return barcode;
+    public String getQrcode() {
+        return qrcode;
     }
 
-    public void setBarcode(String barcode) {
-        this.barcode = barcode;
+    public void setQrcode(String qrcode) {
+        this.qrcode = qrcode;
     }
 }

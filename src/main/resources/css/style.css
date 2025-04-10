@@ -174,3 +174,53 @@ VBox Button:hover {
 #searchBox {
     -fx-background-color: #333333;
 }
+
+
+/*
+---------------
+ticket
+---------------
+*/
+
+/* Import Source Serif Pro if needed */
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&display=swap');
+
+.ticket {
+    -fx-background-radius: 0;
+    -fx-background-color: linear-gradient(
+            from 0% 0% to 100% 0%,
+            #17A69D 18%,
+            #006AC6 54%,
+            #005CAC 69%,
+            #6B4ECA 100%
+    );
+    -fx-font-family: 'Source Serif Pro';
+}
+
+.title, .type, .datetime, .location, .notes, .guidance {
+    -fx-text-fill: linear-gradient(
+            from 0% 0% to 100% 0%,
+            rgba(8,8,8,0.73) 0%,
+            #3B3939 30%,
+            rgba(16,8,8,0.78) 64%,
+            #5F5757 100%
+    );
+    -fx-font-size: 16px;
+    -fx-font-family: 'Source Serif Pro';
+}
+
+.title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.type {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+.notes, .guidance {
+    -fx-wrap-text: true;
+    -fx-max-width: 250;
+    -fx-font-size: 14px;
+}

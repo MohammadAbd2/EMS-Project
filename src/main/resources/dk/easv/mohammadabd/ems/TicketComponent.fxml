@@ -13,7 +13,7 @@
     <TextField fx:id="locationField" promptText="Location"/>
     <TextField fx:id="locationGuidanceField" promptText="Location Guidance"/>
     <TextField fx:id="notesField" promptText="Notes"/>
-    <TextField fx:id="barcodeField" promptText="Barcode" editable="false" />
+    <TextField fx:id="qrcode" promptText="QRCode" editable="false" />
 
     <!-- Make sure HBox is imported and used properly -->
     <HBox spacing="10">

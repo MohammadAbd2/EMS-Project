@@ -10,8 +10,6 @@ import javafx.scene.control.Button;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.UUID;
 
 public class TicketController {
     private final TicketBL ticketBL;
@@ -29,7 +27,7 @@ public class TicketController {
     @FXML
     private TextField notesField;
     @FXML
-    private TextField barcodeField;
+    private TextField qrcode;
 
     @FXML
     private Button btnCreate;
@@ -61,7 +59,7 @@ public class TicketController {
         ticket.setLocation(locationField.getText());
         ticket.setLocationGuidance(locationGuidanceField.getText());
         ticket.setNotes(notesField.getText());
-        ticket.setBarcode(barcodeField.getText());
+        ticket.setQrcode(qrcode.getText());
 
         try {
             // Ensure start_time and end_time are not null and properly formatted
@@ -91,7 +89,7 @@ public class TicketController {
                 selectedTicket.setLocation(locationField.getText());
                 selectedTicket.setLocationGuidance(locationGuidanceField.getText());
                 selectedTicket.setNotes(notesField.getText());
-
+                selectedTicket.setQrcode(qrcode.getText());
                 ticketBL.updateTicket(selectedTicket);
                 clearFields(); // Clear input fields after update
 
@@ -125,7 +123,7 @@ public class TicketController {
         locationField.setText(ticket.getLocation());
         locationGuidanceField.setText(ticket.getLocationGuidance());
         notesField.setText(ticket.getNotes());
-        barcodeField.setText(ticket.getBarcode());
+        qrcode.setText(ticket.getQrcode());
 
     }
 
@@ -157,6 +155,10 @@ public class TicketController {
 
             if (notesField != null && notesField.getText() != null) {
                 notesField.clear();
+            }
+
+            if (qrcode != null && qrcode.getText() != null) {
+                qrcode.clear();
             }
 
         } catch (NullPointerException e) {

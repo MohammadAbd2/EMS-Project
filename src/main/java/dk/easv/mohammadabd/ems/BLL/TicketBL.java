@@ -17,12 +17,12 @@ public class TicketBL {
     }
 
     /**
-     * Creates a new ticket with a generated UUID and barcode.
+     * Creates a new ticket with a generated UUID and qrcode.
      */
     public Ticket createTicket(String eventName, LocalDateTime start_time, LocalDateTime end_time, String location, String locationGuidance, String notes) throws SQLException {
         UUID uuid = UUID.randomUUID(); // Generate a unique ID for the ticket
-        String barcode = generateBarcode(uuid); // Generate a barcode based on the UUID
-        Ticket ticket = new Ticket(uuid, eventName, start_time, end_time, location, locationGuidance, notes, barcode);
+        String qrcode = generateQrcode(uuid); // Generate a qrcode based on the UUID
+        Ticket ticket = new Ticket(uuid, eventName, start_time, end_time, location, locationGuidance, notes, qrcode);
         dbTicket.createTicket(ticket); // Persist the ticket in the database
         return ticket;
     }
@@ -49,10 +49,10 @@ public class TicketBL {
     }
 
     /**
-     * Generates a simple barcode string from the ticket UUID.
+     * Generates a simple qrcode string from the ticket UUID.
      */
-    private String generateBarcode(UUID uuid) {
-        return "BAR-" + uuid.toString().substring(0, 8).toUpperCase();
+    private String generateQrcode(UUID uuid) {
+        return "QR-" + uuid.toString().substring(0, 8).toUpperCase();
     }
 
     /**
@@ -75,10 +75,10 @@ public class TicketBL {
         String randomLocation = "Location " + (int) (Math.random() * 100);
         String randomLocationGuidance = "Guidance for " + randomLocation;
         String randomNotes = "Notes for the event.";
-        String randomBarcode = UUID.randomUUID().toString(); // Example barcode
+        String randomQrcode = UUID.randomUUID().toString(); // Example qrcode
 
         // Create and return a Ticket object with the generated data
-        Ticket ticket = new Ticket(UUserID, randomEventName, randomStartTime, randomEndTime, randomLocation, randomLocationGuidance, randomNotes, randomBarcode);
+        Ticket ticket = new Ticket(UUserID, randomEventName, randomStartTime, randomEndTime, randomLocation, randomLocationGuidance, randomNotes, randomQrcode);
         return ticket;
     }
 }

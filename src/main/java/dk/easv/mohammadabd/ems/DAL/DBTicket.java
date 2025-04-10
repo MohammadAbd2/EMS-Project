@@ -21,7 +21,7 @@ public class DBTicket {
      * @throws SQLException if a database access error occurs
      */
     public void createTicket(Ticket ticket) throws SQLException {
-        String sql = "INSERT INTO ticket (ticket_id, event_name, start_time, end_time, location, location_guidance, notes, barcode) " +
+        String sql = "INSERT INTO ticket (ticket_id, event_name, start_time, end_time, location, location_guidance, notes, qrcode) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = dbConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -32,7 +32,7 @@ public class DBTicket {
             pstmt.setString(5, ticket.getLocation());
             pstmt.setString(6, ticket.getLocationGuidance());
             pstmt.setString(7, ticket.getNotes());
-            pstmt.setString(8, ticket.getBarcode());
+            pstmt.setString(8, ticket.getQrcode());
 
             pstmt.executeUpdate();
         }
@@ -59,7 +59,7 @@ public class DBTicket {
                         rs.getString("location"),
                         rs.getString("location_guidance"),
                         rs.getString("notes"),
-                        rs.getString("barcode")
+                        rs.getString("qrcode")
                 );
                 tickets.add(ticket);
             }
@@ -74,7 +74,7 @@ public class DBTicket {
      * @throws SQLException if a database access error occurs
      */
     public void updateTicket(Ticket ticket) throws SQLException {
-        String sql = "UPDATE ticket SET event_name = ?, start_time = ?, end_time = ?, location = ?, location_guidance = ?, notes = ?, barcode = ? " +
+        String sql = "UPDATE ticket SET event_name = ?, start_time = ?, end_time = ?, location = ?, location_guidance = ?, notes = ?, qrcode = ? " +
                 "WHERE ticket_id = ?";
         try (Connection conn = dbConnector.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -84,7 +84,7 @@ public class DBTicket {
             pstmt.setString(4, ticket.getLocation());
             pstmt.setString(5, ticket.getLocationGuidance());
             pstmt.setString(6, ticket.getNotes());
-            pstmt.setString(7, ticket.getBarcode());
+            pstmt.setString(7, ticket.getQrcode());
             pstmt.setString(8, ticket.getId().toString());
 
             pstmt.executeUpdate();
