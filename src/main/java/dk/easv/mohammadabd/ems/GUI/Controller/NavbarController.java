@@ -66,8 +66,6 @@ public class NavbarController {
             rootContainer.getChildren().add(WindowBox);  // Load the Navbar
             rootContainer.getChildren().add(Navbar.loadNavbar());  // Load the Navbar
 
-            // Add the Body with the Ticket-specific components
-            Body.getChildren().add(Slider.loadSlider());  // Add the Slider as an example
             // Here you can add components specific to the Ticket
             Body.getChildren().add(TicketPage.loadPage(event));
 
@@ -109,7 +107,7 @@ public class NavbarController {
             rootContainer.getChildren().add(Navbar.loadNavbar());
 
             //add the new component here bellow
-            Body.getChildren().add(Slider.loadSlider());
+            Body.getChildren().add(Slider.loadSlider(null));
             Body.getChildren().add(Events.loadEventsComponent());
 
 
@@ -148,8 +146,7 @@ public class NavbarController {
             rootContainer.getChildren().add(Navbar.loadNavbar());
 
             //add the new component here bellow
-            Body.getChildren().add(Slider.loadSlider());
-            Body.getChildren().add(Slider.loadSlider());
+            Body.getChildren().add(Slider.loadSlider(null));
 
 
             // create and add the ScrollPane
@@ -187,8 +184,7 @@ public class NavbarController {
             rootContainer.getChildren().add(Navbar.loadNavbar());
 
             //add the new component here bellow
-            Body.getChildren().add(Slider.loadSlider());
-            Body.getChildren().add(Slider.loadSlider());
+            Body.getChildren().add(Slider.loadSlider(null));
 
 
             // create and add the ScrollPane
@@ -227,7 +223,7 @@ public class NavbarController {
             rootContainer.getChildren().add(Navbar.loadNavbar());
 
             //add the new component here bellow
-            Body.getChildren().add(Slider.loadSlider());
+            Body.getChildren().add(Slider.loadSlider(null));
             if(LoggedInUser.getInstance().isAuthenticated()){
                 System.out.println("Already logged in");
 

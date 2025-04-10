@@ -30,8 +30,11 @@ public class  HomePage {
             rootContainer.getChildren().add(Navbar.loadNavbar());
 
             //add the new component here bellow
-            Body.getChildren().add(Slider.loadSlider());
+            Body.getChildren().add(Slider.loadSlider(null));
             Body.getChildren().add(Events.loadEventsComponent());
+
+            // test for loading the Event Page
+            Body.getChildren().add(EventPage.loadPage(null));
 
 
             // create and add the ScrollPane

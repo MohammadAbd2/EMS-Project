@@ -35,7 +35,7 @@ public class Application extends javafx.application.Application {
 
         // Add UI components
         rootContainer.getChildren().add(Navbar.loadNavbar());
-        rootContainer.getChildren().add(Slider.loadSlider());
+        rootContainer.getChildren().add(Slider.loadSlider(null));
 
         // HBox to align SearchFilterBox and Events component side by side
         HBox mainContentBox = new HBox();

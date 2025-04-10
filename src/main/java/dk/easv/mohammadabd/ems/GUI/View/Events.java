@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
+import java.awt.event.MouseEvent;
 import java.time.LocalDate;
 import java.sql.Date;
 import java.util.List;
@@ -97,7 +98,12 @@ public class Events {
         eventCard.setSpacing(8);
         eventCard.setPadding(new Insets(10));
         eventCard.setPrefWidth(160);
+        eventCard.setAlignment(Pos.CENTER);
 
+        eventCard.setOnMouseClicked(Eventclicked -> {
+            System.out.println("Event Clicked" + event);
+
+        });
         ImageView eventImage = new ImageView(new Image("/img/logo.png"));
         eventImage.setFitWidth(160);
         eventImage.setFitHeight(120);

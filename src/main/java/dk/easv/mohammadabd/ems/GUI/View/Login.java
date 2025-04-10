@@ -8,7 +8,6 @@ import java.net.URL;
 
 public class Login {
 
-
     private static final String LOGIN_FXML = "/dk/easv/mohammadabd/ems/loginPage.fxml";
     private static final String CSS_PATH = "/css/style.css";
 
