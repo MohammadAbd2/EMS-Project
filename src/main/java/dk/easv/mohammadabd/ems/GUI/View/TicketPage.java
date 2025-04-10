@@ -26,6 +26,7 @@ public class TicketPage {
             Parent ticketContent = loader.load();
 
             body.getChildren().add(Events.loadEventsComponent());
+            body.getChildren().getLast().setId("EventTitle");
 
             body.getChildren().add(Ticket.loadPage());
             body.getChildren().getLast().setId("TicketAnchor");

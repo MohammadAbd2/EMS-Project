@@ -59,6 +59,10 @@ PasswordField{
     -fx-vbar-policy: always;
 }
 
+#EventTitle{
+    -fx-fit-to-width: true;
+    -fx-min-width: 100%;
+}
 
 /* Style the viewport inside the ScrollPane */
 .scroll-pane .viewport {
