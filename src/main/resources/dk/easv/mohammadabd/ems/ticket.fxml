@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane prefHeight="200" prefWidth="600" stylesheets="@/css/style.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1">
-    <children>
-      <HBox prefHeight="200.0" prefWidth="600.0">
+<AnchorPane  prefHeight="200" prefWidth="600" stylesheets="@/css/style.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="dk.easv.mohammadabd.ems.GUI.Controller.TicketController">
+    <children >
+      <HBox fx:id="ticketContasiner"  prefHeight="200.0" prefWidth="600.0" alignment="CENTER">
          <children>
-              <Pane fx:id="ticketPane" prefHeight="200.0" prefWidth="440.0" styleClass="ticket">
+              <Pane  fx:id="ticketPane" prefHeight="200.0" prefWidth="440.0" styleClass="ticket">
                   <children>
-                  <VBox prefHeight="200.0" prefWidth="440.0">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="440.0">
                      <children>
             
                                   <!-- Title -->

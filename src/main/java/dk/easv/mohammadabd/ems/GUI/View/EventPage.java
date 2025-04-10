@@ -15,6 +15,7 @@ public class EventPage {
             VBox Body = new VBox();
             //add the new component here bellow
             Body.getChildren().add(Slider.loadSlider("/img/slider_img.png"));
+            Body.getChildren().add(Ticket.loadPage());
             // add the fxml to the body
             Body.getChildren().add(loader.load());
 

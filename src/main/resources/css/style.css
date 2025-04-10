@@ -59,11 +59,39 @@ PasswordField{
     -fx-vbar-policy: always;
 }
 
+#EventTitle{
+    -fx-fit-to-width: true;
+    -fx-min-width: 100%;
+}
+
 /* Style the viewport inside the ScrollPane */
 .scroll-pane .viewport {
-    -fx-background-color: white;
+    -fx-background-color: linear-gradient(
+            from 0% 0% to 100% 0%,
+            #17A69D 18%,
+            #006AC6 54%,
+            #005CAC 69%,
+            #6B4ECA 100%
+    );
     -fx-background-radius: 10px; /* Rounded corners for viewport */
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0, 2);
+
+}
+
+.scroll-pane .viewport #TicketAnchor{
+    -fx-padding: 0px 0px 0px 300px !important;
+    -fx-background-color: linear-gradient(
+            from 0% 0% to 100% 0%,
+            #17A69D 18%,
+            #006AC6 54%,
+            #005CAC 69%,
+            #6B4ECA 100%
+    );
+}
+.scroll-pane .viewport #TicketAnchor #ticketContasiner{
+    -fx-border-width: 1px;
+    -fx-border-color: black;
+    -fx-border-radius: 16px;
+
 }
 
 /* Customize the scrollbar track */
@@ -90,7 +118,6 @@ PasswordField{
 /* Gradient Background */
 .root {
     -fx-background-color: linear-gradient(to right, #87CEFA, #6A0DAD);
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 15, 0.2, 0, 5);
     -fx-border-color: rgba(255, 255, 255, 0.2);
     -fx-border-width: 0px;
     -fx-border-radius: 15px;
@@ -204,6 +231,7 @@ eventsPage
 #rootPane {
     -fx-background-color: #0077DF;
 }
+
 #RegularTicketPane {
     -fx-background-color: #000000;
 }
@@ -281,54 +309,105 @@ eventsPage
 
     -fx-cursor: hand;
 }
+.TicketFields{
+    -fx-background-color: linear-gradient(
+            from 0% 0% to 100% 0%,
+            rgba(23, 166, 157, 0.3) 18%,
+            rgba(0, 106, 198, 0.3) 54%,
+            rgba(0, 92, 172, 0.3) 69%,
+            rgba(107, 78, 202, 0.3) 100%
+    );
+    -fx-border-radius: 16px;
+    -fx-border-color:  linear-gradient(
+            from 0% 0% to 100% 0%,
+            rgba(229, 133, 54, 0.9) 18%,
+            rgba(213, 179, 24, 0.83) 54%,
+            rgba(106, 210, 8, 0.71) 69%,
+            rgb(9, 201, 161) 100%
+    );
+    -fx-font-size: 16px !important;
+    -fx-border-width: 1px;
+}
+#eventNameField{
+    -fx-border-width: 2px 1px 1px 1px !important;
+}
+#qrcode{
+    -fx-border-width: 1px 1px 2px 1px !important;
+}
 
+.TicketButtons {
+    -fx-min-width: 130px !important;
+    -fx-min-height: 40px !important;
+    -fx-background-color: linear-gradient(
+            from 70% 56% to 100% 17% ,
+            #DF6800,
+            #ECB07E,
+            #40DAFD);
+    -fx-text-fill: white;
+
+}
 
 /*
 ---------------
-ticket
+General Ticket Style
 ---------------
- */
+*/
 
-
-/* Import Source Serif Pro if needed */
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;700&display=swap');
 
+/* Main ticket container */
 .ticket {
-    -fx-background-radius: 0;
     -fx-background-color: linear-gradient(
             from 0% 0% to 100% 0%,
             #17A69D 18%,
             #006AC6 54%,
             #005CAC 69%,
             #6B4ECA 100%
-    );
+    ) ;
+    -fx-background-radius: 16;
+    -fx-padding: 20;
+    -fx-pref-width: 440px;
+    -fx-pref-height: 200px;
     -fx-font-family: 'Source Serif Pro';
+    -fx-border-width: 1px;
+    -fx-border-color: black;
 }
 
+/* Global label styles */
 .title, .type, .datetime, .location, .notes, .guidance {
-    -fx-text-fill: linear-gradient(
-            from 0% 0% to 100% 0%,
-            rgba(8,8,8,0.73) 0%,
-            #3B3939 30%,
-            rgba(16,8,8,0.78) 64%,
-            #5F5757 100%
-    );
-    -fx-font-size: 16px;
+    -fx-text-fill: #100808C6;
     -fx-font-family: 'Source Serif Pro';
 }
 
+/* Title style */
 .title {
     -fx-font-size: 22px;
     -fx-font-weight: bold;
+    -fx-alignment: center;
 }
 
+/* Ticket type */
 .type {
     -fx-font-size: 18px;
     -fx-font-weight: bold;
 }
 
+/* Date, location, etc. */
+.datetime, .location {
+    -fx-font-size: 16px;
+}
+
+/* Notes and guidance */
 .notes, .guidance {
     -fx-wrap-text: true;
-    -fx-max-width: 250;
     -fx-font-size: 14px;
+    -fx-padding: 5 10 5 10;
+    -fx-max-width: 200px;
+}
+
+/* QR placeholder (optional decoration) */
+#qrPlaceholder {
+    -fx-arc-width: 12;
+    -fx-arc-height: 12;
+    -fx-fill: black;
 }

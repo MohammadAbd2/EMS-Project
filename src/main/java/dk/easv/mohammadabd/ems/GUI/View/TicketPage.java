@@ -26,11 +26,12 @@ public class TicketPage {
             Parent ticketContent = loader.load();
 
             body.getChildren().add(Events.loadEventsComponent());
+            body.getChildren().getLast().setId("EventTitle");
 
-            body.getChildren().add(Slider.loadSlider("/img/regularTicketBackground.png"));
-
+            body.getChildren().add(Ticket.loadPage());
+            body.getChildren().getLast().setId("TicketAnchor");
             body.getChildren().add(ticketContent);
-
+            body.setSpacing(5);
             rootContainer.getChildren().add(body);
             application.getChildren().add(rootContainer);
 

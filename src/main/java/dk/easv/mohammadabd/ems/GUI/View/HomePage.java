@@ -36,7 +36,6 @@ public class  HomePage {
             // test for loading the Event Page
             Body.getChildren().add(EventPage.loadPage(null));
 
-
             // create and add the ScrollPane
             ScrollPane scrollPane = new ScrollPane();
             scrollPane.setContent(Body);
