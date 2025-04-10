@@ -4,7 +4,6 @@ public class LoggedInUser {
     private static LoggedInUser instance;
     private boolean isAuthenticated = false;
 
-    private LoggedInUser() {}
 
     public static LoggedInUser getInstance() {
         if (instance == null)

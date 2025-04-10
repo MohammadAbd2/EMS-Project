@@ -16,6 +16,7 @@ import java.util.Random;
 
 public class EventsController {
 
+
     @FXML
     private VBox eventsContainer;
 

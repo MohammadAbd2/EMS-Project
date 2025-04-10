@@ -6,8 +6,8 @@ import java.time.LocalDate;
 public class Event {
     private int id;
     private String eventName;
-    private Date start_time; // تغيير إلى LocalDate
-    private Date end_time; // تغيير إلى LocalDate
+    private Date start_time;
+    private Date end_time;
     private String location;
     private String locationGuidance;
     private String notes;

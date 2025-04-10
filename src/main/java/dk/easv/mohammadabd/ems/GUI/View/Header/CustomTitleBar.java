@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 public class CustomTitleBar extends HBox {
 
+
     private double xOffset = 0;
     private double yOffset = 0;
 

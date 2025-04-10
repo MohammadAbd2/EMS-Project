@@ -12,6 +12,7 @@ public class DBAdmin {
         dbConnector = new DBConnector();
     }
 
+
     // Create a new admin
     public void createAdmin(Admin admin) throws SQLException {
         String sql = "INSERT INTO admin (username, password, email, phone_number) VALUES (?, ?, ?, ?)";

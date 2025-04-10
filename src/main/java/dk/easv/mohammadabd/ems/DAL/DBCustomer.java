@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBCustomer {
+
     private final DBConnector dbConnector;
 
     public DBCustomer() {

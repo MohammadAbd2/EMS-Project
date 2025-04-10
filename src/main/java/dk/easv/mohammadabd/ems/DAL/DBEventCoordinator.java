@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DBEventCoordinator {
+
     private final DBConnector dbConnector;
 
     public DBEventCoordinator() {

@@ -14,6 +14,7 @@ import java.net.URL;
 
 public class Navbar {
 
+
     private static final String NAVBAR_FXML = "/dk/easv/mohammadabd/ems/navbar.fxml";
     private static final String CSS_PATH = "/css/style.css";
     private static final String LOGO_PATH = "/img/logo.png";

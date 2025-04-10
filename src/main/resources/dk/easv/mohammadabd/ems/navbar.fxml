@@ -32,6 +32,7 @@
         <!-- Spacer to Push Navbar to the Right -->
         <Region HBox.hgrow="ALWAYS" />
 
+
         <!-- Navigation Bar (Buttons) -->
         <HBox fx:id="navbar" alignment="TOP_CENTER" stylesheets="@../../../../css/style.css">
             <Button fx:id="HomeTab" text="Home" onAction="#HomeTab" />

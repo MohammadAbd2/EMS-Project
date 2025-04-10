@@ -12,6 +12,7 @@ import java.util.Map;
 
 public class SceneManager {
 
+
     private static Stage primaryStage; // Store the primary stage
     private static final Map<String, Parent> scenes = new HashMap<>(); // Store scenes
 
