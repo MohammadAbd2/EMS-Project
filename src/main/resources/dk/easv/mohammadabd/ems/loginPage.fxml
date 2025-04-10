@@ -25,7 +25,7 @@
         <TextField fx:id="username" maxWidth="337.6" prefHeight="25.6" prefWidth="337.6" promptText="admin" />
 
         <Label prefHeight="25.6" prefWidth="337.6" style="-fx-text-fill: black; -fx-font-size: 18;" text="Password" />
-        <PasswordField fx:id="password" maxWidth="337.6" prefHeight="25.6" prefWidth="337.6" promptText="abc123" />
+        <PasswordField fx:id="password" maxWidth="337.6" prefHeight="25.6" prefWidth="337.6" promptText="1234" />
 
         <Button fx:id="loginButton" maxWidth="200" prefHeight="30.0" prefWidth="200.0" styleClass="login-button" text="Log In" onAction="#loginButtonClicked" />
       <Region prefHeight="0.0" prefWidth="338.0" />
