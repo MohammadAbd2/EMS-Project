@@ -25,13 +25,13 @@ public class TicketPage {
             FXMLLoader loader = new FXMLLoader(TicketPage.class.getResource("/dk/easv/mohammadabd/ems/TicketComponent.fxml"));
             Parent ticketContent = loader.load();
 
-            body.getChildren().add(Events.loadEventsComponent());
-            body.getChildren().getLast().setId("EventTitle");
 
             body.getChildren().add(Ticket.loadPage());
             body.getChildren().getLast().setId("TicketAnchor");
             body.getChildren().add(ticketContent);
             body.setSpacing(5);
+            body.getChildren().add(Events.loadEventsComponent());
+            body.getChildren().getLast().setId("EventTitle");
             rootContainer.getChildren().add(body);
             application.getChildren().add(rootContainer);
 
