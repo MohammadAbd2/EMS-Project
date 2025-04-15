@@ -34,7 +34,9 @@
         <Button  styleClass="TicketButtons"  fx:id="btnUpdate" text="Update" onAction="#updateTicket"/>
         <Button  styleClass="TicketButtons"  fx:id="btnDelete" text="Delete" onAction="#deleteTicket"/>
         <Button  styleClass="TicketButtons"  fx:id="btnGenerate" text="Generate" onAction="#generatData"/>
-        <Button  styleClass="TicketButtons" fx:id="btnClear" text="Clear" onAction="#clearFields"/>
+        <Button  styleClass="TicketButtons"  fx:id="btnClear" text="Clear" onAction="#clearFields"/>
+        <Button  styleClass="TicketButtons"  fx:id="btnPrint" text="Print" onAction="#printTicket"/>
+        <Button  styleClass="TicketButtons"  fx:id="btnEmail" text="Send by Email" onAction="#EmailTicket"/>
     </HBox>
 
 

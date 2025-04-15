@@ -32,7 +32,10 @@ public class TicketBillController {
     @FXML private Label ticketLocationGuidance;
     @FXML private ImageView ticketQrCode;
 
-
+    @FXML
+    private void initialize() {
+        ticketQrCode.setImage(generateQrCode("this is a Random Generated QR code Picture"));
+    }
 
     public static Image generateQrCode(String text) {
         int width = 220;

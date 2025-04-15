@@ -3,6 +3,10 @@ package dk.easv.mohammadabd.ems.GUI.Controller;
 import dk.easv.mohammadabd.ems.BE.Ticket;
 import dk.easv.mohammadabd.ems.BLL.TicketBL;
 import dk.easv.mohammadabd.ems.GUI.Model.TicketML;
+import dk.easv.mohammadabd.ems.GUI.View.Event;
+import dk.easv.mohammadabd.ems.GUI.View.EventPage;
+import dk.easv.mohammadabd.ems.GUI.View.Events;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -90,6 +94,7 @@ public class TicketController {
 
             // Add ticket UI to container
             mainContainer.getChildren().add(ticketNode);
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -260,5 +265,9 @@ public class TicketController {
     }
 
 
+    public void printTicket(ActionEvent event) {
+    }
 
+    public void EmailTicket(ActionEvent event) {
+    }
 }

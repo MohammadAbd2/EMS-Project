@@ -70,6 +70,8 @@ public class NavbarController {
             Node ticketPage = loader.load();
 
             VBox body = new VBox(ticketPage);
+            body.setSpacing(10);
+            body.getChildren().add(Events.loadEventsComponent());
 
             // === Scrollable Content ===
             ScrollPane scrollPane = new ScrollPane(body);
