@@ -1,53 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane  prefHeight="200" prefWidth="600" stylesheets="@/css/style.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="dk.easv.mohammadabd.ems.GUI.Controller.TicketController">
-    <children >
-      <HBox fx:id="ticketContasiner"  prefHeight="200.0" prefWidth="600.0" alignment="CENTER">
-         <children>
-              <Pane  fx:id="ticketPane" prefHeight="200.0" prefWidth="440.0" styleClass="ticket">
-                  <children>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="440.0">
-                     <children>
-            
-                                  <!-- Title -->
-                            <Label alignment="CENTER" maxHeight="47.0" maxWidth="1.7976931348623157E308" prefHeight="47.0" styleClass="title" text="EVENT TITLE" />
-            
-                                  <!-- Ticket Type -->
-                            <Label alignment="CENTER" maxHeight="27.0" maxWidth="1.7976931348623157E308" prefHeight="27.0" styleClass="type" text="TICKET TYPE (STANDARD/VIP/Etc...)" />
-            
-                                  <!-- Date and Time -->
-                            <Label alignment="CENTER" maxHeight="25.0" maxWidth="1.7976931348623157E308" prefHeight="25.0" styleClass="datetime" text="1 March 22:00 - 2 March 2:00" />
-            
-                                  <!-- Location -->
-                            <Label alignment="CENTER" maxHeight="27.0" maxWidth="1.7976931348623157E308" prefHeight="27.0" styleClass="location" text="EASV Bar - Esbjerg" />
-                        <HBox maxHeight="78.0" prefHeight="76.0" prefWidth="422.0">
-                           <children>
-                  
-                                        <!-- Notes -->
-                                  <Label alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" prefHeight="76.0" styleClass="notes" text="Notes:  Dance, laugh, celebrate, and enjoy great music, friends, fun, and surprises!" textAlignment="CENTER" wrapText="true" />
-                  
-                                        <!-- Location Guidance -->
-                                  <Label alignment="TOP_LEFT" maxWidth="1.7976931348623157E308" prefHeight="76.0" styleClass="guidance" text="Location Guidance: Down from the canteen stairs then to the left through the door" textAlignment="CENTER" wrapText="true" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
-                  </children>
-              </Pane>
-            <Pane prefHeight="200.0" prefWidth="160.0">
-               <children>
-                      <!-- QR Code Placeholder -->
-                      <Rectangle fx:id="qrPlaceholder" height="127.0" layoutX="17.0" layoutY="37.0" style="-fx-fill: black;" width="127.0" />
-               </children>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1"
+           fx:controller="dk.easv.mohammadabd.ems.GUI.Controller.TicketBillController"
+           stylesheets="@/css/style.css" prefWidth="600" prefHeight="200">
+
+    <HBox fx:id="ticketContasiner" alignment="CENTER" prefWidth="600" prefHeight="200">
+        <children>
+            <Pane fx:id="ticketPane" prefHeight="200.0" prefWidth="440.0" styleClass="ticket">
+                <children>
+                    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="440.0">
+                        <children>
+
+                            <!-- Title -->
+                            <Label fx:id="ticketNameLabel" alignment="CENTER" maxHeight="47.0" prefHeight="47.0"
+                                   styleClass="title" text="EVENT TITLE"/>
+
+                            <!-- Ticket Type -->
+                            <Label fx:id="ticketType" alignment="CENTER" maxHeight="27.0" prefHeight="27.0"
+                                   styleClass="type" text="TICKET TYPE (STANDARD/VIP/Etc...)"/>
+
+
+                            <!-- Location -->
+                            <Label fx:id="ticketLocation" alignment="CENTER" maxHeight="27.0" prefHeight="27.0"
+                                   styleClass="location" text="EASV Bar - Esbjerg"/>
+
+
+                            <!-- Date and Time -->
+                            <Label fx:id="ticketDateTime" alignment="CENTER" maxHeight="25.0" prefHeight="25.0"
+                                   styleClass="datetime" text="1 March 22:00 - 2 March 2:00"/>
+
+
+                            <HBox maxHeight="78.0" prefHeight="76.0" prefWidth="422.0">
+                                <children>
+
+                                    <!-- Notes -->
+                                    <Label fx:id="ticketNotes" alignment="TOP_LEFT" wrapText="true"
+                                           styleClass="notes"
+                                           prefHeight="76.0"
+                                           text="Notes:  Dance, laugh, celebrate, and enjoy great music, friends, fun, and surprises!"/>
+
+                                    <!-- Location Guidance -->
+                                    <Label fx:id="ticketLocationGuidance" alignment="TOP_LEFT" wrapText="true"
+                                           styleClass="guidance"
+                                           prefHeight="76.0"
+                                           text="Location Guidance: Down from the canteen stairs then to the left through the door"/>
+                                </children>
+                            </HBox>
+                        </children>
+                    </VBox>
+                </children>
             </Pane>
-         </children>
-      </HBox>
-    </children>
-</AnchorPane>
+
+            <Pane prefHeight="200.0" prefWidth="160.0">
+                <children>
+                    <!-- QR Code Placeholder -->
+                    <ImageView fx:id="ticketQrCode"/>
+                </children>
+            </Pane>
+        </children>
+    </HBox>
+</StackPane>

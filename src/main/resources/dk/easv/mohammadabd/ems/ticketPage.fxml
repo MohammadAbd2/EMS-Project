@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx"
+      fx:controller="dk.easv.mohammadabd.ems.GUI.Controller.TicketController"
+      spacing="10"
+      alignment="TOP_CENTER"
+      stylesheets="@/css/style.css"
+      prefWidth="600">
+
+
+    <!-- Ticket preview component -->
+    <StackPane fx:id="mainContainer" prefHeight="250" prefWidth="600" style="-fx-background-color: transparent;" >
+
+    </StackPane>
+
+    <!-- Input fields -->
+    <TextField styleClass="TicketFields" fx:id="eventNameField" promptText="Event Name" onKeyReleased="#updateTicketOnTyping"/>
+    <TextField styleClass="TicketFields" fx:id="ticketTypeField" promptText="Ticket Type" onKeyReleased="#updateTicketOnTyping"/>
+    <TextField styleClass="TicketFields" fx:id="startTimeField" promptText="Start Time" onKeyReleased="#updateTicketOnTyping"/>
+    <TextField styleClass="TicketFields" fx:id="endTimeField" promptText="End Time" onKeyReleased="#updateTicketOnTyping"/>
+    <TextField styleClass="TicketFields" fx:id="locationField" promptText="Location" onKeyReleased="#updateTicketOnTyping"/>
+    <TextField styleClass="TicketFields" fx:id="locationGuidanceField" promptText="Location Guidance" onKeyReleased="#updateTicketOnTyping"/>
+    <TextField styleClass="TicketFields" fx:id="notesField" promptText="Notes" onKeyReleased="#updateTicketOnTyping"/>
+    <TextField styleClass="TicketFields" fx:id="qrcode" promptText="QRCode" editable="false" onKeyReleased="#updateTicketOnTyping"/>
+
+    <!-- Buttons -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button  styleClass="TicketButtons"  fx:id="btnCreate" text="Create" onAction="#createTicket"/>
+        <Button  styleClass="TicketButtons"  fx:id="btnUpdate" text="Update" onAction="#updateTicket"/>
+        <Button  styleClass="TicketButtons"  fx:id="btnDelete" text="Delete" onAction="#deleteTicket"/>
+        <Button  styleClass="TicketButtons"  fx:id="btnGenerate" text="Generate" onAction="#generatData"/>
+        <Button  styleClass="TicketButtons" fx:id="btnClear" text="Clear" onAction="#clearFields"/>
+    </HBox>
+
+
+</VBox>

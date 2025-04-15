@@ -7,6 +7,7 @@ import dk.easv.mohammadabd.ems.GUI.View.Header.Slider;
 import dk.easv.mohammadabd.ems.Utils.LoggedInUser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -51,44 +52,44 @@ public class NavbarController {
     }
 
     public void ticketTab(ActionEvent event) {
-
         try {
-            // Declare the variables
-            VBox Application = new VBox();
-            VBox WindowBox = new VBox();
-            VBox rootContainer = new VBox();
-            VBox Body  = new VBox();
+            // Get current stage
             Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            // Load Header components such as Navbar and CustomTitleBar
+            // === Root layout ===
+            VBox rootContainer = new VBox();
+
+            // === Top UI: Title bar + Navbar ===
             CustomTitleBar customTitleBar = new CustomTitleBar(currentStage);
-            WindowBox.getChildren().add(customTitleBar);
-            rootContainer.getChildren().add(WindowBox);  // Load the Navbar
-            rootContainer.getChildren().add(Navbar.loadNavbar());  // Load the Navbar
+            Node navbar = Navbar.loadNavbar(); // Assuming this returns a Node
 
-            // Here you can add components specific to the Ticket
-            Body.getChildren().add(TicketPage.loadPage(event));
+            rootContainer.getChildren().addAll(customTitleBar, navbar);
 
-            // Add ScrollPane to enable vertical and horizontal scrolling
-            ScrollPane scrollPane = new ScrollPane();
-            scrollPane.setContent(Body);
+            // === Ticket Page ===
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/dk/easv/mohammadabd/ems/ticketPage.fxml"));
+            Node ticketPage = loader.load();
+
+            VBox body = new VBox(ticketPage);
+
+            // === Scrollable Content ===
+            ScrollPane scrollPane = new ScrollPane(body);
             scrollPane.setFitToWidth(true);
             scrollPane.setFitToHeight(true);
             scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
             scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
             scrollPane.getStyleClass().add("scroll-pane");
 
-            // Add ScrollPane to root container
             rootContainer.getChildren().add(scrollPane);
 
-            // Set the new Scene to the Stage
-            Application.getChildren().add(rootContainer);
+            // === Set to current scene ===
             Scene currentScene = currentStage.getScene();
-            currentScene.setRoot(Application);
+            currentScene.setRoot(rootContainer);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
 
     public void HomeTab(ActionEvent event) {

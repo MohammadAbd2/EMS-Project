@@ -4,18 +4,30 @@ import dk.easv.mohammadabd.ems.BE.Ticket;
 import dk.easv.mohammadabd.ems.BLL.TicketBL;
 import dk.easv.mohammadabd.ems.GUI.Model.TicketML;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class TicketController {
+    Ticket ticket = new Ticket();
     private final TicketBL ticketBL;
+    private TicketBillController ticketBillController;
+
 
     @FXML
     private TextField eventNameField;
+    @FXML
+    private TextField ticketTypeField;
     @FXML
     private TextField startTimeField;
     @FXML
@@ -30,6 +42,24 @@ public class TicketController {
     private TextField qrcode;
 
     @FXML
+    public Label ticketNameLabel;
+    @FXML
+    private Label ticketNotes;
+    @FXML
+    private Label ticketDateTime;
+    @FXML
+    private Label ticketLocation;
+    @FXML
+    private Label ticketLocationGuidance;
+
+    @FXML
+    public StackPane mainContainer;
+
+
+
+
+
+    @FXML
     private Button btnCreate;
     @FXML
     private Button btnUpdate;
@@ -38,14 +68,74 @@ public class TicketController {
 
     private Ticket selectedTicket;
 
+    @FXML
+    private VBox container;
+
+
     public TicketController() {
         ticketBL = new TicketBL();
     }
 
+
+
+
     @FXML
     private void initialize() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/dk/easv/mohammadabd/ems/ticket.fxml"));
+            Node ticketNode = loader.load();
+
+            // Get controller from loader
+            ticketBillController = loader.getController();
+
+            // Add ticket UI to container
+            mainContainer.getChildren().add(ticketNode);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+    @FXML
+    private void updateTicketOnTyping() {
+        if (ticketBillController != null && eventNameField.getText() != null) {
+            ticket.setEventName(eventNameField.getText());
+            ticketBillController.updateTicket(ticket);
+        }
+        if (ticketBillController != null && ticketTypeField.getText() != null) {
+            ticket.setType(ticketTypeField.getText());
+            ticketBillController.updateTicket(ticket);
+        }
+        if (ticketBillController != null && startTimeField.getText() != null) {
+            ticket.setStart_time(LocalDateTime.parse(startTimeField.getText()));
+            ticketBillController.updateTicket(ticket);
+        }
+        if (ticketBillController != null && endTimeField.getText() != null) {
+            ticket.setEnd_time(LocalDateTime.parse(endTimeField.getText()));
+            ticketBillController.updateTicket(ticket);
+        }
+        if (ticketBillController != null && locationField.getText() != null) {
+            ticket.setLocation(locationField.getText());
+            ticketBillController.updateTicket(ticket);
+        }
+        if (ticketBillController != null && locationGuidanceField.getText() != null) {
+            ticket.setLocationGuidance(locationGuidanceField.getText());
+            ticketBillController.updateTicket(ticket);
+        }
+        if (ticketBillController != null && notesField.getText() != null) {
+            ticket.setNotes(notesField.getText());
+            ticketBillController.updateTicket(ticket);
+        }
+        if (ticketBillController != null && qrcode.getText() != null) {
+            ticket.setQrcode(qrcode.getText());
+            ticketBillController.updateTicket(ticket);
+        }
 
     }
+
 
     /**
      * Calls BLL to create a ticket.
@@ -60,6 +150,7 @@ public class TicketController {
         ticket.setLocationGuidance(locationGuidanceField.getText());
         ticket.setNotes(notesField.getText());
         ticket.setQrcode(qrcode.getText());
+        ticket.setType(ticketTypeField.getText());
 
         try {
             // Ensure start_time and end_time are not null and properly formatted
@@ -91,6 +182,7 @@ public class TicketController {
                 selectedTicket.setNotes(notesField.getText());
                 selectedTicket.setQrcode(qrcode.getText());
                 ticketBL.updateTicket(selectedTicket);
+                System.out.println(ticketBL);
                 clearFields(); // Clear input fields after update
 
             } catch (SQLException | NumberFormatException e) {
@@ -118,13 +210,14 @@ public class TicketController {
         TicketML ticketML = new TicketML();
         Ticket ticket = ticketML.generateTicket();
         eventNameField.setText(ticket.getEventName());
+        ticketTypeField.setText(ticket.getType());
         startTimeField.setText(String.valueOf(ticket.getStart_time()));
         endTimeField.setText(String.valueOf(ticket.getEnd_time()));
         locationField.setText(ticket.getLocation());
         locationGuidanceField.setText(ticket.getLocationGuidance());
         notesField.setText(ticket.getNotes());
         qrcode.setText(ticket.getQrcode());
-
+        updateTicketOnTyping();
     }
 
     /**
@@ -165,4 +258,7 @@ public class TicketController {
             e.printStackTrace();
         }
     }
+
+
+
 }

@@ -19,10 +19,10 @@ public class TicketBL {
     /**
      * Creates a new ticket with a generated UUID and qrcode.
      */
-    public Ticket createTicket(String eventName, LocalDateTime start_time, LocalDateTime end_time, String location, String locationGuidance, String notes) throws SQLException {
+    public Ticket createTicket(String eventName, LocalDateTime start_time, LocalDateTime end_time, String location, String locationGuidance, String notes , String qrcode, String type) throws SQLException {
         UUID uuid = UUID.randomUUID(); // Generate a unique ID for the ticket
-        String qrcode = generateQrcode(uuid); // Generate a qrcode based on the UUID
-        Ticket ticket = new Ticket(uuid, eventName, start_time, end_time, location, locationGuidance, notes, qrcode);
+
+        Ticket ticket = new Ticket(uuid, eventName, start_time, end_time, location, locationGuidance, notes, qrcode, type);
         dbTicket.createTicket(ticket); // Persist the ticket in the database
         return ticket;
     }
@@ -61,8 +61,8 @@ public class TicketBL {
     public Ticket generateRandomData() throws SQLException {
         // Generate random data
         UUID UUserID = UUID.randomUUID();
-        String randomEventName = "Event " + UUID.randomUUID().toString();
-
+        String randomEventName = "Event #" + (int) (Math.random() * 200);
+        String randomTicketType = "Standard";
         int randomHour = new Random().nextInt(24);
         LocalDateTime randomStartTime = LocalDateTime.now().withHour(randomHour).withMinute(0).withSecond(0).withNano(0);
         // Generate end time, 2 hours after the start time
@@ -72,13 +72,14 @@ public class TicketBL {
 
         randomStartTime.format(formatter);
         randomEndTime = randomStartTime.plusHours(2); // Example: end time 2 hours after start
-        String randomLocation = "Location " + (int) (Math.random() * 100);
-        String randomLocationGuidance = "Guidance for " + randomLocation;
-        String randomNotes = "Notes for the event.";
+        int randomEventNumber = (int) (Math.random() * 200);
+        String randomLocation = "Location " + randomEventNumber;
+        String randomLocationGuidance = "Guidance for " + randomEventNumber + " you can entire to the bar from the basement";
+        String randomNotes = "Notes for the event : Dance, laugh, celebrate, and enjoy great music and friends";
         String randomQrcode = UUID.randomUUID().toString(); // Example qrcode
 
+
         // Create and return a Ticket object with the generated data
-        Ticket ticket = new Ticket(UUserID, randomEventName, randomStartTime, randomEndTime, randomLocation, randomLocationGuidance, randomNotes, randomQrcode);
-        return ticket;
+        return new Ticket(UUserID, randomEventName, randomStartTime, randomEndTime, randomLocation, randomLocationGuidance, randomNotes, randomQrcode, randomTicketType);
     }
 }

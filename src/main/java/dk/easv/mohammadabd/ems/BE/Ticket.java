@@ -12,8 +12,9 @@ public class Ticket {
     private String locationGuidance;
     private String notes;
     private String qrcode;
+    private String type;
 
-    public Ticket(UUID id, String eventName, LocalDateTime start_time, LocalDateTime end_time, String location, String locationGuidance, String notes, String qrcode) {
+    public Ticket(UUID id, String eventName, LocalDateTime start_time, LocalDateTime end_time, String location, String locationGuidance, String notes, String qrcode, String type) {
         this.id = id;
         this.eventName = eventName;
         this.start_time = start_time;
@@ -22,6 +23,7 @@ public class Ticket {
         this.locationGuidance = locationGuidance;
         this.notes = notes;
         this.qrcode = qrcode;
+        this.type = type;
     }
 
     public Ticket() {
@@ -90,5 +92,12 @@ public class Ticket {
 
     public void setQrcode(String qrcode) {
         this.qrcode = qrcode;
+    }
+
+    public String getType() {
+        return type;
+    }
+    public void setType(String type) {
+        this.type = type;
     }
 }

@@ -77,8 +77,18 @@ PasswordField{
 
 }
 
-.scroll-pane .viewport #TicketAnchor{
-    -fx-padding: 0px 0px 0px 300px !important;
+
+#ticketContasiner{
+    -fx-border-width: 1px;
+    -fx-border-color: linear-gradient(
+            from 0% 0% to 100% 0%,
+            #dcd413 18%,
+            #005CAC 54%,
+            #006AC6 69%,
+            #17A69D 100%
+    );;
+    -fx-border-radius: 16px;
+    -fx-padding: 0px 0px 0px 150px !important;
     -fx-background-color: linear-gradient(
             from 0% 0% to 100% 0%,
             #17A69D 18%,
@@ -86,11 +96,6 @@ PasswordField{
             #005CAC 69%,
             #6B4ECA 100%
     );
-}
-.scroll-pane .viewport #TicketAnchor #ticketContasiner{
-    -fx-border-width: 1px;
-    -fx-border-color: black;
-    -fx-border-radius: 16px;
 
 }
 
@@ -247,13 +252,13 @@ eventsPage
 }
 
 #VipBox {
-        -fx-background-color: #00192F;
-        -fx-border-color: #E5C100;
-        -fx-border-width: 2px;
-        -fx-border-radius: 10px;
-        -fx-background-radius: 10px;
+    -fx-background-color: #00192F;
+    -fx-border-color: #E5C100;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
 
-    }
+}
 
 
 

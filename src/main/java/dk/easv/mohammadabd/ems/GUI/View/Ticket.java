@@ -12,7 +12,7 @@ public class Ticket {
         try {
             StackPane ticketContainer = new StackPane(); // Changed from VBox to StackPane
 
-            FXMLLoader loader = new FXMLLoader(TicketPage.class.getResource("/dk/easv/mohammadabd/ems/Ticket.fxml"));
+            FXMLLoader loader = new FXMLLoader(TicketPage.class.getResource("/dk/easv/mohammadabd/ems/ticket.fxml"));
             Parent ticket = loader.load();
 
             ticketContainer.getChildren().add(ticket);

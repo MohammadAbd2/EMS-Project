@@ -59,7 +59,8 @@ public class DBTicket {
                         rs.getString("location"),
                         rs.getString("location_guidance"),
                         rs.getString("notes"),
-                        rs.getString("qrcode")
+                        rs.getString("qrcode"),
+                        rs.getString("type")
                 );
                 tickets.add(ticket);
             }
